@@ -15,6 +15,6 @@ public class Photo implements Serializable {
     }
 
     public boolean deleteTag(String type, String data){
-
+        return false;
     }
 }

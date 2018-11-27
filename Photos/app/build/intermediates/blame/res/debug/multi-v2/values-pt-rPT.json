@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\mdm71\\cs213project4\\Photos\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-pt-rPT\\values-pt-rPT.xml",
+            "outputFile": "/Users/craigsirota/cs213project4/Photos/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-pt-rPT/values-pt-rPT.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\mdm71\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-28.0.0.aar\\f6dd375c61b75a3ec4ee79e54df84c95\\res\\values-pt-rPT\\values-pt-rPT.xml",
+                    "source": "/Users/craigsirota/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/09cb4e372f3803dcb3723ca3ac186de0/res/values-pt-rPT/values-pt-rPT.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\mdm71\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\7639167c003b177f8e4c2104ab436899\\res\\values-pt-rPT\\values-pt-rPT.xml",
+                    "source": "/Users/craigsirota/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/c71912bc15b0343407ada970a35f196a/res/values-pt-rPT/values-pt-rPT.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
