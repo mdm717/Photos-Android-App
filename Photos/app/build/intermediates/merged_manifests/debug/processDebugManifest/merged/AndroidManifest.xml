@@ -28,6 +28,7 @@
             </intent-filter>
         </activity>
         <activity android:name="com.craigmsirota.photos.NewAlbum" />
+        <activity android:name="com.craigmsirota.photos.EditAlbum" />
     </application>
 
 </manifest>

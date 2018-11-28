@@ -25,10 +25,10 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class HomeScreen extends AppCompatActivity {
-    GridView gridView;
+    public static GridView gridView;
     Button newButton, delete, rename, open;
     public static ArrayList<String> albums;
-    private int index;
+    private static int index;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         albums = new ArrayList<String>();
@@ -93,11 +93,24 @@ public class HomeScreen extends AppCompatActivity {
                 openNewAlbum();
             }
         });
+
+
+        rename.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openEditAlbum();
+            }
+        });
         write();
     }
 
     private void openNewAlbum(){
         Intent intent = new Intent(this, NewAlbum.class);
+        startActivity(intent);
+    }
+
+    private void openEditAlbum(){
+        Intent intent = new Intent(this, EditAlbum.class);
         startActivity(intent);
     }
 
@@ -158,5 +171,9 @@ public class HomeScreen extends AppCompatActivity {
         } catch(IOException e){
             e.printStackTrace();
         }
+    }
+
+    public static int getIndex(){
+        return index;
     }
 }

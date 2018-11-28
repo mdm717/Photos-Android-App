@@ -3,4 +3,8 @@
     <string name="create_new_album">Create New Album</string>
     <string name="new_album">New Album</string>
     <string name="create">Create</string>
+    <string name="edit_album">Edit Album</string>
+    <string name="new_name">New Name</string>
+    <string name="edit">Edit</string>
+    <string name="cancel">Cancel</string>
 </resources>

@@ -21,7 +21,14 @@ public class NewAlbum extends AppCompatActivity {
         setContentView(R.layout.activity_new_album);
 
         final EditText albumName =  (EditText) findViewById(R.id.albumName);
-        Button createButton =  (Button) findViewById(R.id.create);
+        Button createButton =  (Button) findViewById(R.id.create),
+                backButton = (Button) findViewById(R.id.cancel);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
         createButton.setOnClickListener(new View.OnClickListener() {
             @Override
