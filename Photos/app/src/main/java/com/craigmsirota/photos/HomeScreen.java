@@ -87,6 +87,13 @@ public class HomeScreen extends AppCompatActivity {
             }
         });
 
+        open.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openAlbum();
+            }
+        });
+
         newButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -106,6 +113,11 @@ public class HomeScreen extends AppCompatActivity {
 
     private void openNewAlbum(){
         Intent intent = new Intent(this, NewAlbum.class);
+        startActivity(intent);
+    }
+
+    private void openAlbum(){
+        Intent intent = new Intent(this, AlbumView.class);
         startActivity(intent);
     }
 

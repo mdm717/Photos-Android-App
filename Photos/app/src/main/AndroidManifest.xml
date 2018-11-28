@@ -19,7 +19,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".NewAlbum" />
-        <activity android:name=".EditAlbum"></activity>
+        <activity android:name=".EditAlbum" />
+        <activity android:name=".AlbumView"></activity>
     </application>
 
 </manifest>

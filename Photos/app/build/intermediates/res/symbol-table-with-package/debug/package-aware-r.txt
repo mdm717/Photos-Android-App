@@ -646,6 +646,7 @@ drawable tooltip_frame_dark
 drawable tooltip_frame_light
 id ALT
 id CTRL
+id Copy
 id FUNCTION
 id META
 id SHIFT
@@ -701,6 +702,7 @@ id delete
 id dimensions
 id direct
 id disableHome
+id display
 id edit_query
 id end
 id expand_activities_button
@@ -729,6 +731,7 @@ id listMode
 id list_item
 id message
 id middle
+id move
 id multiply
 id never
 id newButton
@@ -741,6 +744,7 @@ id open
 id packed
 id parent
 id parentPanel
+id paste
 id percent
 id progress_circular
 id progress_horizontal
@@ -832,6 +836,7 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_album_view
 layout activity_edit_album
 layout activity_home_screen
 layout activity_new_album
@@ -887,14 +892,20 @@ string abc_searchview_description_voice
 string abc_shareactionprovider_share_with
 string abc_shareactionprovider_share_with_application
 string abc_toolbar_collapse_description
+string add
 string app_name
 string cancel
+string copy
 string create
 string create_new_album
+string delete
+string display
 string edit
 string edit_album
+string move
 string new_album
 string new_name
+string paste
 string search_menu_title
 string status_bar_notification_info_overflow
 style AlertDialog_AppCompat

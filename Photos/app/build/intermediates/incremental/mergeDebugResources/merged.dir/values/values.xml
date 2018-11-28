@@ -1599,14 +1599,20 @@
     <string name="abc_shareactionprovider_share_with">Share with</string>
     <string name="abc_shareactionprovider_share_with_application">Share with <ns1:g example="Mail" id="application_name">%s</ns1:g></string>
     <string name="abc_toolbar_collapse_description">Collapse</string>
+    <string name="add">Add</string>
     <string name="app_name">Photos</string>
     <string name="cancel">Cancel</string>
+    <string name="copy">Copy</string>
     <string name="create">Create</string>
     <string name="create_new_album">Create New Album</string>
+    <string name="delete">Delete</string>
+    <string name="display">Display</string>
     <string name="edit">Edit</string>
     <string name="edit_album">Edit Album</string>
+    <string name="move">Move</string>
     <string name="new_album">New Album</string>
     <string name="new_name">New Name</string>
+    <string name="paste">Paste</string>
     <string name="search_menu_title">Search</string>
     <string name="status_bar_notification_info_overflow">999+</string>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
