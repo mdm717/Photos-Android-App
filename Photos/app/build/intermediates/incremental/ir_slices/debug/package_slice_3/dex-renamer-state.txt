@@ -1,4 +1,4 @@
-#Tue Nov 27 16:38:10 EST 2018
+#Tue Nov 27 23:03:03 EST 2018
 base.0=/Users/craigsirota/cs213project4/Photos/app/build/intermediates/transforms/dexMerger/debug/3
 path.0=classes.dex
 renamed.0=classes.dex

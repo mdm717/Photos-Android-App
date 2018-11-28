@@ -670,6 +670,7 @@ id action_text
 id actions
 id activity_chooser_view_content
 id add
+id albumName
 id alertTitle
 id all
 id always
@@ -678,10 +679,6 @@ id barrier
 id beginning
 id blocking
 id bottom
-id button
-id button2
-id button3
-id button4
 id buttonPanel
 id center
 id center_horizontal
@@ -694,10 +691,12 @@ id clip_vertical
 id collapseActionView
 id content
 id contentPanel
+id create
 id custom
 id customPanel
 id decor_content_parent
 id default_activity_button
+id delete
 id dimensions
 id direct
 id disableHome
@@ -731,11 +730,13 @@ id message
 id middle
 id multiply
 id never
+id newButton
 id none
 id normal
 id notification_background
 id notification_main_column
 id notification_main_column_container
+id open
 id packed
 id parent
 id parentPanel
@@ -743,6 +744,7 @@ id percent
 id progress_circular
 id progress_horizontal
 id radio
+id rename
 id right
 id right_icon
 id right_side
@@ -830,6 +832,8 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_home_screen
+layout activity_new_album
+layout dialog_new_album
 layout notification_action
 layout notification_action_tombstone
 layout notification_template_custom_big
@@ -882,6 +886,9 @@ string abc_shareactionprovider_share_with
 string abc_shareactionprovider_share_with_application
 string abc_toolbar_collapse_description
 string app_name
+string create
+string create_new_album
+string new_album
 string search_menu_title
 string status_bar_notification_info_overflow
 style AlertDialog_AppCompat
@@ -889,7 +896,8 @@ style AlertDialog_AppCompat_Light
 style Animation_AppCompat_Dialog
 style Animation_AppCompat_DropDownUp
 style Animation_AppCompat_Tooltip
-style AppTheme
+style AppFullScreenTheme
+style AppTheme1
 style Base_AlertDialog_AppCompat
 style Base_AlertDialog_AppCompat_Light
 style Base_Animation_AppCompat_Dialog
