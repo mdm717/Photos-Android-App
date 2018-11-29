@@ -648,6 +648,7 @@ id ALT
 id CTRL
 id Copy
 id FUNCTION
+id GridView
 id META
 id SHIFT
 id SYM
