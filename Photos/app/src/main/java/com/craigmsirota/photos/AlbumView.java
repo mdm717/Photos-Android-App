@@ -10,6 +10,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.GridView;
 import android.view.View.OnClickListener;
@@ -49,13 +52,18 @@ public class AlbumView extends AppCompatActivity {
         gridView = findViewById(R.id.GridView);
         add = (Button) findViewById(R.id.add);
         copy = findViewById(R.id.Copy);
+        copy.setVisibility(View.INVISIBLE);
         paste = (Button) findViewById(R.id.paste);
+        paste.setVisibility(HomeScreen.isCopy ? View.VISIBLE : View.INVISIBLE);
         display = (Button) findViewById(R.id.display);
+        display.setVisibility(View.INVISIBLE);
         delete = (Button) findViewById(R.id.delete);
+        delete.setVisibility(View.INVISIBLE);
         move = (Button) findViewById(R.id.move);
+        move.setVisibility(View.INVISIBLE);
 
         imgAdapter = new ImageAdapter(this);
-        GridView gridview = (GridView) findViewById(R.id.GridView);
+        final GridView gridview = (GridView) findViewById(R.id.GridView);
 
         read();
 
@@ -77,6 +85,19 @@ public class AlbumView extends AppCompatActivity {
         delete.setOnClickListener(new OnClickListener(){
             @Override
             public void onClick(View view){
+                if (index>=0 && index<imgAdapter.getCount()) {
+                    imgAdapter.remove(index);
+                    index = -1;
+
+                    makeVisible(false);
+
+                        write();
+                    gridView.setAdapter(imgAdapter);
+                } else {
+
+                    Toast.makeText(getApplicationContext(),
+                            "Failed to delete image "+index, Toast.LENGTH_SHORT).show();
+                }
 
             }
         });
@@ -84,7 +105,9 @@ public class AlbumView extends AppCompatActivity {
         paste.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view){
-
+                imgAdapter.add(HomeScreen.copy);
+                gridView.setAdapter(imgAdapter);
+                write();
             }
         });
 
@@ -98,7 +121,9 @@ public class AlbumView extends AppCompatActivity {
        copy.setOnClickListener(new OnClickListener() {
            @Override
            public void onClick(View view) {
-
+               HomeScreen.isCopy = true;
+               paste.setVisibility(View.VISIBLE);
+               HomeScreen.copy = imgAdapter.getID(index);
            }
        });
 
@@ -106,6 +131,22 @@ public class AlbumView extends AppCompatActivity {
            @Override
            public void onClick(View view) {
 
+               HomeScreen.isCopy = true;
+               paste.setVisibility(View.VISIBLE);
+               HomeScreen.copy = imgAdapter.getID(index);
+               imgAdapter.remove(index);
+               gridView.setAdapter(imgAdapter);
+               write();
+           }
+       });
+
+       gridView.setOnItemClickListener(new OnItemClickListener() {
+           public void onItemClick(AdapterView<?> parent, View v,
+                                   int position, long id) {
+               index = position;
+               if (index!= -1){
+                   makeVisible(true);
+               }
            }
        });
     }
@@ -206,4 +247,10 @@ public class AlbumView extends AppCompatActivity {
         }
     }
 
+    private void makeVisible(boolean vis){
+        copy.setVisibility(vis ? View.VISIBLE : View.INVISIBLE);
+        move.setVisibility(vis ? View.VISIBLE : View.INVISIBLE);
+        display.setVisibility(vis ? View.VISIBLE : View.INVISIBLE);
+        delete.setVisibility(vis ? View.VISIBLE : View.INVISIBLE);
+    }
 }

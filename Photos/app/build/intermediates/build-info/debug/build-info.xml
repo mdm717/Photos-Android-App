@@ -7,22 +7,22 @@
     format="10"
     ir-eligibility="COMPATIBLE"
     plugin-version="3.2.1"
-    timestamp="1543789127425"
+    timestamp="1543792659870"
     token="6247371676523430297"
     verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="394" />
+        duration="163" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="709" />
+        duration="34" />
     <task
         name="verifier"
-        duration="18" />
+        duration="10" />
 
     <artifact
         location="/Users/craigsirota/cs213project4/Photos/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
@@ -30,34 +30,10 @@
 
     <build
         build-mode="FULL"
-        timestamp="1543786586799"
+        timestamp="1543790392947"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
-            location="/Users/craigsirota/cs213project4/Photos/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
-            type="SPLIT" />
-        <artifact
-            location="/Users/craigsirota/cs213project4/Photos/app/build/intermediates/split-apk/debug/slices/slice_4.apk"
-            type="SPLIT" />
-        <artifact
-            location="/Users/craigsirota/cs213project4/Photos/app/build/intermediates/split-apk/debug/slices/slice_5.apk"
-            type="SPLIT" />
-        <artifact
-            location="/Users/craigsirota/cs213project4/Photos/app/build/intermediates/split-apk/debug/slices/slice_8.apk"
-            type="SPLIT" />
-        <artifact
-            location="/Users/craigsirota/cs213project4/Photos/app/build/intermediates/split-apk/debug/slices/slice_9.apk"
-            type="SPLIT" />
-        <artifact
-            location="/Users/craigsirota/cs213project4/Photos/app/build/intermediates/split-apk/debug/slices/slice_7.apk"
-            type="SPLIT" />
-        <artifact
             location="/Users/craigsirota/cs213project4/Photos/app/build/intermediates/resources/instant-run/debug/resources-debug.apk"
-            type="SPLIT" />
-        <artifact
-            location="/Users/craigsirota/cs213project4/Photos/app/build/intermediates/split-apk/debug/slices/slice_0.apk"
-            type="SPLIT" />
-        <artifact
-            location="/Users/craigsirota/cs213project4/Photos/app/build/intermediates/split-apk/debug/slices/slice_3.apk"
             type="SPLIT" />
         <artifact
             location="/Users/craigsirota/cs213project4/Photos/app/build/intermediates/split-apk/debug/dep/dependencies.apk"
@@ -66,7 +42,31 @@
             location="/Users/craigsirota/cs213project4/Photos/app/build/intermediates/split-apk/debug/slices/slice_1.apk"
             type="SPLIT" />
         <artifact
+            location="/Users/craigsirota/cs213project4/Photos/app/build/intermediates/split-apk/debug/slices/slice_5.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/craigsirota/cs213project4/Photos/app/build/intermediates/split-apk/debug/slices/slice_3.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/craigsirota/cs213project4/Photos/app/build/intermediates/split-apk/debug/slices/slice_4.apk"
+            type="SPLIT" />
+        <artifact
             location="/Users/craigsirota/cs213project4/Photos/app/build/intermediates/split-apk/debug/slices/slice_2.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/craigsirota/cs213project4/Photos/app/build/intermediates/split-apk/debug/slices/slice_0.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/craigsirota/cs213project4/Photos/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/craigsirota/cs213project4/Photos/app/build/intermediates/split-apk/debug/slices/slice_7.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/craigsirota/cs213project4/Photos/app/build/intermediates/split-apk/debug/slices/slice_8.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/craigsirota/cs213project4/Photos/app/build/intermediates/split-apk/debug/slices/slice_9.apk"
             type="SPLIT" />
         <artifact
             location="/Users/craigsirota/cs213project4/Photos/app/build/intermediates/instant-run-apk/debug/app-debug.apk"
@@ -75,7 +75,7 @@
     <build
         build-mode="COLD"
         ir-eligibility="COMPATIBLE"
-        timestamp="1543789127425"
+        timestamp="1543792659870"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="/Users/craigsirota/cs213project4/Photos/app/build/intermediates/split-apk/debug/slices/slice_6.apk"

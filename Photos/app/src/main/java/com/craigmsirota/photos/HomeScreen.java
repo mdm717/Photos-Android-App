@@ -1,6 +1,7 @@
 package com.craigmsirota.photos;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -30,6 +31,9 @@ public class HomeScreen extends AppCompatActivity {
     public static ArrayList<String> albums;
     public static String albumName;
     private static int index;
+    public static Uri copy;
+    public static boolean isCopy;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         albums = new ArrayList<String>();
@@ -42,6 +46,11 @@ public class HomeScreen extends AppCompatActivity {
         open = (Button) findViewById(R.id.open);
         delete = (Button) findViewById(R.id.delete);
         rename = (Button) findViewById(R.id.rename);
+        open.setVisibility(View.INVISIBLE);
+        delete.setVisibility(View.INVISIBLE);
+        rename.setVisibility(View.INVISIBLE);
+
+        isCopy = false;
 
         for (String s:read()) {
             albums.add(s);
@@ -58,6 +67,9 @@ public class HomeScreen extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),
                         ((TextView) v).getText()+"" + position, Toast.LENGTH_SHORT).show();
                 index = position;
+                open.setVisibility(View.VISIBLE);
+                delete.setVisibility(View.VISIBLE);
+                rename.setVisibility(View.VISIBLE);
             }
         });
 
@@ -80,6 +92,10 @@ public class HomeScreen extends AppCompatActivity {
                             android.R.layout.simple_list_item_1, albums);
 
                     gridView.setAdapter(arrayAdapter);
+
+                    open.setVisibility(View.INVISIBLE);
+                    delete.setVisibility(View.INVISIBLE);
+                    rename.setVisibility(View.INVISIBLE);
                 } else {
 
                     Toast.makeText(getApplicationContext(),
