@@ -28,6 +28,7 @@ public class HomeScreen extends AppCompatActivity {
     public static GridView gridView;
     Button newButton, delete, rename, open;
     public static ArrayList<String> albums;
+    public static String albumName;
     private static int index;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,6 +91,7 @@ public class HomeScreen extends AppCompatActivity {
         open.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
+                albumName=albums.get(index);
                 openAlbum();
             }
         });

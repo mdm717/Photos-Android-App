@@ -18,12 +18,19 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
 
 
 public class AlbumView extends AppCompatActivity {
     private static final int READ_REQUEST_CODE = 42;
+    private ImageAdapter imgAdapter;
     public static GridView gridView;
     Button add, copy, paste, display, delete, move;
 
@@ -46,6 +53,14 @@ public class AlbumView extends AppCompatActivity {
         display = (Button) findViewById(R.id.display);
         delete = (Button) findViewById(R.id.delete);
         move = (Button) findViewById(R.id.move);
+
+        imgAdapter = new ImageAdapter(this);
+        GridView gridview = (GridView) findViewById(R.id.GridView);
+
+        read();
+
+        gridview.setAdapter(imgAdapter);
+
 
         add.setOnClickListener(new OnClickListener(){
             @Override
@@ -104,25 +119,91 @@ public class AlbumView extends AppCompatActivity {
      */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-            super.onActivityResult(requestCode, resultCode, data);
+        super.onActivityResult(requestCode, resultCode, data);
 
-            if (requestCode == READ_REQUEST_CODE  && resultCode  == RESULT_OK && data != null) {
+        if (requestCode == READ_REQUEST_CODE  && resultCode  == RESULT_OK && data != null) {
 
-                index++;
-                Photo picture = new Photo(data.toString());
-                Uri imageUri = data.getData();
+            index++;
+            Photo picture = new Photo(data.toString());
+            Uri imageUri = data.getData();
 
-                /*
-                try {
-                    ImageView imageView = new ImageView();
-                    gridView.addTouchables(new ImageView(bitmap));
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                */
+            Toast.makeText(getApplicationContext(), imageUri.toString(),Toast.LENGTH_LONG).show();
 
+            imgAdapter.add(imageUri);
+            gridView.setAdapter(imgAdapter);
+            write();
+
+            /*
+            try {
+                ImageView imageView = new ImageView();
+                gridView.addTouchables(new ImageView(bitmap));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            */
+
+        }
+    }
+
+
+    public void read() {
+        String[] strings = {};
+
+        try {
+            FileInputStream fileInputStream = openFileInput(HomeScreen.albumName + ".list");
+
+            InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
+            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+            String lineIn;
+
+            while ((lineIn = bufferedReader.readLine()) != null) {
+                imgAdapter.add(Uri.parse(lineIn));
             }
 
+            gridView.setAdapter(imgAdapter);
 
+            Toast.makeText(this, "Read From " + getFilesDir() + File.separator + HomeScreen.albumName + ".list",
+                    Toast.LENGTH_LONG).show();
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
+
+    public void write(){
+// FILE PATH    /data/user/0/com.craigmsirota.photos/files/albums.albm
+        try {
+            ArrayList<Uri> uris = imgAdapter.getUris();
+
+            String str = "";
+            FileOutputStream fileOutputStream = openFileOutput(HomeScreen.albumName+".list", MODE_PRIVATE);
+            for (Uri u : uris) {
+                if (str.equals("")) {
+                    str = u.toString();
+
+                    Toast.makeText(this, "Wrote " +u.toString(),
+                            Toast.LENGTH_SHORT).show();
+                } else {
+                    str = str + "\n" + u.toString();
+                    Toast.makeText(this, "Wrote " +u.toString(),
+                            Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            fileOutputStream.write(str.getBytes());
+
+            Toast.makeText(this, "Saved to " + getFilesDir() + File.separator + HomeScreen.albumName+".list",
+                    Toast.LENGTH_LONG).show();
+
+        }catch(FileNotFoundException e){
+            e.printStackTrace();
+        } catch(ArrayIndexOutOfBoundsException e){
+            e.printStackTrace();
+        } catch(IOException e){
+            e.printStackTrace();
+        }
+    }
+
 }
