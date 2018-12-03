@@ -15,7 +15,7 @@ public class ImageAdapter extends BaseAdapter {
     private Context context;
 
 
-    private ArrayList<Uri> uris = new ArrayList<>();
+    public static ArrayList<Photo> uris = new ArrayList<>();
 
     public ImageAdapter(Context c) {
         context = c;
@@ -48,16 +48,20 @@ public class ImageAdapter extends BaseAdapter {
             imageView = (ImageView) convertView;
         }
 
-        imageView.setImageURI(uris.get(index));
+        imageView.setImageURI(uris.get(index).getUri());
         return imageView;
     }
 
     public Uri getID(int index){
+        return uris.get(index).getUri();
+    }
+
+    public Photo getPhoto(int index){
         return uris.get(index);
     }
 
     public void add(Uri add) {
-        uris.add(add);
+        uris.add(new Photo(add));
     }
 
     public void remove(int index) {
@@ -69,8 +73,12 @@ public class ImageAdapter extends BaseAdapter {
     }
 
 
-    public ArrayList<Uri> getUris() {
+    public ArrayList<Photo> getPhotos() {
         return uris;
+    }
+
+    public void clear() {
+        uris.clear();
     }
 
 

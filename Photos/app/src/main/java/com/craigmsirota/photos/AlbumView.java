@@ -21,6 +21,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.craigmsirota.photos.Album;
+import com.craigmsirota.photos.HomeScreen;
+import com.craigmsirota.photos.ImageAdapter;
+import com.craigmsirota.photos.R;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -33,11 +38,11 @@ import java.util.ArrayList;
 
 public class AlbumView extends AppCompatActivity {
     private static final int READ_REQUEST_CODE = 42;
-    private ImageAdapter imgAdapter;
+    public static ImageAdapter imgAdapter;
     public static GridView gridView;
     Button add, copy, paste, display, delete, move;
 
-    private static int index = 0;
+    public static int index = 0;
 
     private static Photo photoCopy;
 
@@ -115,6 +120,8 @@ public class AlbumView extends AppCompatActivity {
             @Override
             public void onClick(View view){
 
+                Intent intent = new Intent(getApplicationContext(), SlideShowView.class);
+                startActivity(intent);
             }
         });
 
@@ -165,7 +172,7 @@ public class AlbumView extends AppCompatActivity {
         if (requestCode == READ_REQUEST_CODE  && resultCode  == RESULT_OK && data != null) {
 
             index++;
-            Photo picture = new Photo(data.toString());
+            Photo picture = new Photo(data.getData());
             Uri imageUri = data.getData();
 
             Toast.makeText(getApplicationContext(), imageUri.toString(),Toast.LENGTH_LONG).show();
@@ -189,7 +196,7 @@ public class AlbumView extends AppCompatActivity {
 
     public void read() {
         String[] strings = {};
-
+        imgAdapter.clear();
         try {
             FileInputStream fileInputStream = openFileInput(HomeScreen.albumName + ".list");
 
@@ -198,7 +205,11 @@ public class AlbumView extends AppCompatActivity {
             String lineIn;
 
             while ((lineIn = bufferedReader.readLine()) != null) {
-                imgAdapter.add(Uri.parse(lineIn));
+                if (lineIn.substring(0,4).equals("TAG:")) {
+                    imgAdapter.getPhoto(imgAdapter.getCount()-1).addTag(lineIn.substring(4));
+                } else {
+                    imgAdapter.add(Uri.parse(lineIn));
+                }
             }
 
             gridView.setAdapter(imgAdapter);
@@ -216,11 +227,11 @@ public class AlbumView extends AppCompatActivity {
     public void write(){
 // FILE PATH    /data/user/0/com.craigmsirota.photos/files/albums.albm
         try {
-            ArrayList<Uri> uris = imgAdapter.getUris();
+            ArrayList<Photo> uris = imgAdapter.getPhotos();
 
             String str = "";
             FileOutputStream fileOutputStream = openFileOutput(HomeScreen.albumName+".list", MODE_PRIVATE);
-            for (Uri u : uris) {
+            for (Photo u : uris) {
                 if (str.equals("")) {
                     str = u.toString();
 

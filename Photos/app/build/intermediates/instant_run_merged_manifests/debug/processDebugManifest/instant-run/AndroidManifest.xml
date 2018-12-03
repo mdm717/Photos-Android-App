@@ -30,6 +30,8 @@
         <activity android:name="com.craigmsirota.photos.NewAlbum" />
         <activity android:name="com.craigmsirota.photos.EditAlbum" />
         <activity android:name="com.craigmsirota.photos.AlbumView" />
+        <activity android:name="com.craigmsirota.photos.SlideShowView" />
+        <activity android:name="com.craigmsirota.photos.NewTag" />
 
         <provider
             android:name="com.android.tools.ir.server.InstantRunContentProvider"

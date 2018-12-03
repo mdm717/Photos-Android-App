@@ -20,7 +20,9 @@
         </activity>
         <activity android:name=".NewAlbum" />
         <activity android:name=".EditAlbum" />
-        <activity android:name=".AlbumView"></activity>
+        <activity android:name=".AlbumView" />
+        <activity android:name=".SlideShowView" />
+        <activity android:name=".NewTag"></activity>
     </application>
 
 </manifest>
