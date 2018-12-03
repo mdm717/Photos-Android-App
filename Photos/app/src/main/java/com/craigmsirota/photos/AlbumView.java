@@ -175,20 +175,13 @@ public class AlbumView extends AppCompatActivity {
             Photo picture = new Photo(data.getData());
             Uri imageUri = data.getData();
 
+
             Toast.makeText(getApplicationContext(), imageUri.toString(),Toast.LENGTH_LONG).show();
 
             imgAdapter.add(imageUri);
             gridView.setAdapter(imgAdapter);
+            album.list.add(picture);
             write();
-
-            /*
-            try {
-                ImageView imageView = new ImageView();
-                gridView.addTouchables(new ImageView(bitmap));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            */
 
         }
     }
