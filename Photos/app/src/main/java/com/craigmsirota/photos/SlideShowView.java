@@ -19,6 +19,7 @@ public class SlideShowView extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_slide_show_view);
 
         index = AlbumView.index;
 
