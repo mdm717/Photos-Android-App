@@ -130,7 +130,7 @@ public class AlbumView extends AppCompatActivity {
            public void onClick(View view) {
                HomeScreen.isCopy = true;
                paste.setVisibility(View.VISIBLE);
-               HomeScreen.copy = imgAdapter.getID(index);
+               HomeScreen.copy = imgAdapter.uris.get(index);
            }
        });
 
@@ -140,7 +140,7 @@ public class AlbumView extends AppCompatActivity {
 
                HomeScreen.isCopy = true;
                paste.setVisibility(View.VISIBLE);
-               HomeScreen.copy = imgAdapter.getID(index);
+               HomeScreen.copy = imgAdapter.uris.get(index);
                imgAdapter.remove(index);
                gridView.setAdapter(imgAdapter);
                write();

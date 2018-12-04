@@ -31,7 +31,7 @@ public class HomeScreen extends AppCompatActivity {
     public static ArrayList<String> albums;
     public static String albumName;
     private static int index;
-    public static Uri copy;
+    public static Photo copy;
     public static boolean isCopy;
 
     @Override

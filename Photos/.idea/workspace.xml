@@ -50,17 +50,34 @@
       <file leaf-file-name="Photo.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/craigmsirota/photos/Photo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="143">
+            <state relative-caret-position="165">
               <caret line="18" column="22" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="22" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AlbumView.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AlbumView.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/craigmsirota/photos/AlbumView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="35">
-              <caret line="225" column="13" selection-start-line="225" selection-start-column="13" selection-end-line="225" selection-end-column="13" />
+            <state relative-caret-position="618">
+              <caret line="149" column="39" selection-start-line="149" selection-start-column="39" selection-end-line="149" selection-end-column="39" />
+              <folding>
+                <element signature="e#3424#3660#0" expanded="true" />
+                <element signature="e#3659#3660#0" expanded="true" />
+                <element signature="e#3977#4236#0" expanded="true" />
+                <element signature="e#4235#4236#0" expanded="true" />
+                <element signature="e#4687#4982#0" expanded="true" />
+                <element signature="e#4981#4982#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HomeScreen.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/craigmsirota/photos/HomeScreen.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-265">
+              <caret line="33" column="29" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -105,16 +122,21 @@
       <file leaf-file-name="ImageAdapter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/craigmsirota/photos/ImageAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+            <state relative-caret-position="209">
+              <caret line="62" column="30" selection-start-line="62" selection-start-column="30" selection-end-line="62" selection-end-column="30" />
+              <folding>
+                <element signature="e#1613#1614#0" expanded="true" />
+                <element signature="e#1649#1650#0" expanded="true" />
+                <element signature="e#1689#1690#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NewTag.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="NewTag.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/craigmsirota/photos/NewTag.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-264">
+            <state relative-caret-position="241">
               <caret line="76" column="97" selection-start-line="76" selection-start-column="97" selection-end-line="76" selection-end-column="97" />
               <folding>
                 <element signature="e#1614#3082#0" expanded="true" />
@@ -2438,14 +2460,14 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/craigmsirota/photos/EditAlbum.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/craigmsirota/photos/NewAlbum.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_album_view.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/craigmsirota/photos/HomeScreen.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/craigmsirota/photos/Photo.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/craigmsirota/photos/ImageAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_slide_show_view.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_new_tag.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/craigmsirota/photos/SlideShowView.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/craigmsirota/photos/AlbumView.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/craigmsirota/photos/NewTag.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/craigmsirota/photos/HomeScreen.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/craigmsirota/photos/ImageAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/craigmsirota/photos/AlbumView.java" />
       </list>
     </option>
   </component>
@@ -2478,17 +2500,6 @@
               <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
               <item name="photos" type="cbb59c9e:AndroidPsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Photos" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-            </path>
-            <path>
-              <item name="Photos" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-              <item name="layout" type="ddeffd01:AndroidResFolderTypeNode" />
             </path>
           </expand>
           <select />
@@ -2658,7 +2669,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="Android Profiler" order="7" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -2928,29 +2938,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/craigmsirota/photos/HomeScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="159" column="12" selection-start-line="159" selection-start-column="12" selection-end-line="159" selection-end-column="12" />
-          <folding>
-            <element signature="imports" />
-            <element signature="e#1889#1897#0" />
-            <element signature="e#2051#2566#0" />
-            <element signature="e#2565#2566#0" />
-            <element signature="e#2604#3788#0" />
-            <element signature="e#3206#3214#0" />
-            <element signature="e#3787#3788#0" />
-            <element signature="e#3824#4012#0" />
-            <element signature="e#4011#4012#0" />
-            <element signature="e#4053#4199#0" />
-            <element signature="e#4198#4199#0" />
-            <element signature="e#4238#4385#0" />
-            <element signature="e#4384#4385#0" />
-            <element signature="e#5174#5182#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/craigmsirota/photos/Album.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -3010,27 +2997,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/craigmsirota/photos/Photo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="18" column="22" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/craigmsirota/photos/ImageAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/craigmsirota/photos/AlbumView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="35">
-          <caret line="225" column="13" selection-start-line="225" selection-start-column="13" selection-end-line="225" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_edit_album.xml">
       <provider editor-type-id="android-designer2">
         <state />
@@ -3041,6 +3007,31 @@
           <folding>
             <element signature="e#1272#1288#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/craigmsirota/photos/NewTag.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="76" column="97" selection-start-line="76" selection-start-column="97" selection-end-line="76" selection-end-column="97" />
+          <folding>
+            <element signature="e#1614#3082#0" expanded="true" />
+            <element signature="e#3081#3082#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/craigmsirota/photos/Photo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="18" column="22" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/craigmsirota/photos/HomeScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-265">
+          <caret line="33" column="29" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="29" />
         </state>
       </provider>
     </entry>
@@ -3064,13 +3055,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/craigmsirota/photos/NewTag.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/craigmsirota/photos/ImageAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-264">
-          <caret line="76" column="97" selection-start-line="76" selection-start-column="97" selection-end-line="76" selection-end-column="97" />
+        <state relative-caret-position="209">
+          <caret line="62" column="30" selection-start-line="62" selection-start-column="30" selection-end-line="62" selection-end-column="30" />
           <folding>
-            <element signature="e#1614#3082#0" expanded="true" />
-            <element signature="e#3081#3082#0" expanded="true" />
+            <element signature="e#1613#1614#0" expanded="true" />
+            <element signature="e#1649#1650#0" expanded="true" />
+            <element signature="e#1689#1690#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/craigmsirota/photos/AlbumView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="618">
+          <caret line="149" column="39" selection-start-line="149" selection-start-column="39" selection-end-line="149" selection-end-column="39" />
+          <folding>
+            <element signature="e#3424#3660#0" expanded="true" />
+            <element signature="e#3659#3660#0" expanded="true" />
+            <element signature="e#3977#4236#0" expanded="true" />
+            <element signature="e#4235#4236#0" expanded="true" />
+            <element signature="e#4687#4982#0" expanded="true" />
+            <element signature="e#4981#4982#0" expanded="true" />
           </folding>
         </state>
       </provider>

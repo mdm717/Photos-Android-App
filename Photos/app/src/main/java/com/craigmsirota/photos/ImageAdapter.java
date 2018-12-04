@@ -64,6 +64,10 @@ public class ImageAdapter extends BaseAdapter {
         uris.add(new Photo(add));
     }
 
+    public void add(Photo add) {
+        uris.add(add);
+    }
+
     public void remove(int index) {
         uris.remove(index);
     }
