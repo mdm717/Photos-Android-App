@@ -10,24 +10,28 @@
     android:layout_gravity="center">
 
     <RadioGroup
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
+        android:id="@+id/radiogroup"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_weight="1">
 
         <RadioButton
             android:id="@+id/location"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="100dp"
+            android:layout_weight="2"
             android:text="Location" />
 
         <RadioButton
             android:id="@+id/person"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="Person" />
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="2"
+            android:text="Person"
+            android:layout_marginBottom="70dp" />
     </RadioGroup>
 
     <EditText
@@ -35,23 +39,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_weight="1"
+        android:layout_weight="0"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Tag" />
+        android:hint="Tag"
+        android:paddingBottom="30dp"/>
 
     <Button
         android:id="@+id/add"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_weight="0"
         android:text="Add Tag" />
 
     <Button
         android:id="@+id/cancel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Cancel" />
+        android:layout_weight="0"
+        android:text="Cancel"
+        android:layout_marginBottom="30dp"/>
 
 </LinearLayout>

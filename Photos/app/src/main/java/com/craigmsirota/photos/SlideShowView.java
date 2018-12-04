@@ -23,7 +23,7 @@ public class SlideShowView extends AppCompatActivity {
     private Button prev, next, add, delete;
     public ImageView imgView;
     public static GridView gridView;
-    public static ArrayAdapter<Tag> tagAdapter;
+    public static ArrayAdapter tagAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,10 +35,23 @@ public class SlideShowView extends AppCompatActivity {
         imgView = (ImageView) findViewById(R.id.imageView);
         gridView = (GridView) findViewById(R.id.gridView);
 
+        tagAdapter = new ArrayAdapter<Tag>(this, android.R.layout.simple_list_item_1, AlbumView.imgAdapter.uris.get(index).tags);
+
+        gridView.setAdapter(tagAdapter);
+
         prev = (Button) findViewById(R.id.prev);
         next = (Button) findViewById(R.id.next);
         add = (Button) findViewById(R.id.Add_Tag);
         delete = (Button) findViewById(R.id.Del_Tag);
+
+        if (AlbumView.imgAdapter.getCount() == 1) {
+            prev.setVisibility(View.INVISIBLE);
+            next.setVisibility(View.INVISIBLE);
+        } else if(index == 0) {
+            prev.setVisibility(View.INVISIBLE);
+        } else if (index == AlbumView.imgAdapter.getCount()-1) {
+            next.setVisibility(View.INVISIBLE);
+        }
 
         try {
             //InputStream pictureInputStream = getContentResolver().openInputStream(AlbumView.album.list.get(index).getUri());
@@ -66,11 +79,21 @@ public class SlideShowView extends AppCompatActivity {
             public void onClick(View view) {
                 if(index>0){
                     index--;
+                    if (next.getVisibility()==View.INVISIBLE){
+                        next.setVisibility(View.VISIBLE);
+                    }
+                    if (index==0) {
+                        prev.setVisibility(View.INVISIBLE);
+                    }
                     try {
                         //InputStream pictureInputStream = getContentResolver().openInputStream(AlbumView.album.list.get(index).getUri());
                         InputStream pictureInputStream = getContentResolver().openInputStream(AlbumView.imgAdapter.uris.get(index).getUri());
                         Bitmap currPic = BitmapFactory.decodeStream(pictureInputStream);
                         imgView.setImageBitmap(currPic);
+
+                        tagAdapter = new ArrayAdapter<Tag>(getApplicationContext(), android.R.layout.simple_list_item_1, AlbumView.imgAdapter.uris.get(index).tags);
+
+                        gridView.setAdapter(tagAdapter);
                     } catch (FileNotFoundException e2){
                         e2.printStackTrace();
                     }
@@ -81,13 +104,23 @@ public class SlideShowView extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(index<AlbumView.imgAdapter.uris.size()-1) {
+                if(index<AlbumView.imgAdapter.getCount()-1) {
                     index++;
+                    if (prev.getVisibility()==View.INVISIBLE){
+                        prev.setVisibility(View.VISIBLE);
+                    }
+                    if (index==AlbumView.imgAdapter.getCount()-1) {
+                        next.setVisibility(View.INVISIBLE);
+                    }
                     try {
                         //InputStream pictureInputStream = getContentResolver().openInputStream(AlbumView.album.list.get(index).getUri());
                         InputStream pictureInputStream = getContentResolver().openInputStream(AlbumView.imgAdapter.uris.get(index).getUri());
                         Bitmap currPic = BitmapFactory.decodeStream(pictureInputStream);
                         imgView.setImageBitmap(currPic);
+
+                        tagAdapter = new ArrayAdapter<Tag>(getApplicationContext(), android.R.layout.simple_list_item_1, AlbumView.imgAdapter.uris.get(index).tags);
+
+                        gridView.setAdapter(tagAdapter);
                     }catch(FileNotFoundException e1){
                         e1.printStackTrace();
                     }

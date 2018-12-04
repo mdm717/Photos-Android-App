@@ -235,6 +235,9 @@ public class AlbumView extends AppCompatActivity {
                     Toast.makeText(this, "Wrote " +u.toString(),
                             Toast.LENGTH_SHORT).show();
                 }
+                for (Tag t : u.tags){
+                    str = str + "\nTAG:" + t.toString();
+                }
             }
 
             fileOutputStream.write(str.getBytes());

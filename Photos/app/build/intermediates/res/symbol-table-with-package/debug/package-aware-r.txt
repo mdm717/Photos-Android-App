@@ -759,6 +759,7 @@ id prev
 id progress_circular
 id progress_horizontal
 id radio
+id radiogroup
 id rename
 id right
 id right_icon
