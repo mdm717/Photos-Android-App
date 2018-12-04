@@ -26,10 +26,23 @@ import static com.craigmsirota.photos.AlbumView.album;
 public class SlideShowView extends AppCompatActivity {
     public static int index;
     private int tagIndex = -1;
-    private Button prev, next, add, delete;
+    public static Button add;
+    private Button prev, next, delete;
     public ImageView imgView;
     public static GridView gridView;
     public static ArrayAdapter tagAdapter;
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        if (AlbumView.imgAdapter.uris.get(index).tags.size() == 0) {
+            delete.setVisibility(View.INVISIBLE);
+        } else {
+
+            delete.setVisibility(View.VISIBLE);
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +69,10 @@ public class SlideShowView extends AppCompatActivity {
         next = (Button) findViewById(R.id.next);
         add = (Button) findViewById(R.id.Add_Tag);
         delete = (Button) findViewById(R.id.Del_Tag);
+
+        if (AlbumView.imgAdapter.uris.get(index).tags.size() == 0) {
+            delete.setVisibility(View.INVISIBLE);
+        }
 
         if (AlbumView.imgAdapter.getCount() == 1) {
             prev.setVisibility(View.INVISIBLE);
@@ -159,6 +176,10 @@ public class SlideShowView extends AppCompatActivity {
                     gridView.setAdapter(tagAdapter);
 
                     write();
+                }
+
+                if (AlbumView.imgAdapter.uris.get(index).tags.size() == 0) {
+                    delete.setVisibility(View.INVISIBLE);
                 }
             }
         });
