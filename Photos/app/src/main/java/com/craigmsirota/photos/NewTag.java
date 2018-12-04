@@ -47,22 +47,38 @@ public class NewTag extends AppCompatActivity {
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                ArrayList<String> tags = new ArrayList<>();
+
+                for (Tag t: AlbumView.imgAdapter.uris.get(SlideShowView.index).tags) {
+                    if (!(tags.contains(t.toString()))){
+                        tags.add(t.toString());
+                    }
+                }
+
                 type = rg.getCheckedRadioButtonId();
                 Toast.makeText(getApplicationContext(),((int)type) + "", Toast.LENGTH_SHORT).show();
                 if (!tagData.getText().toString().equals("")) {
                     switch (type) {
                         case 2131165275:
-                            AlbumView.imgAdapter.uris.get(SlideShowView.index).addTag("Location=" + tagData.getText().toString());
-         //                   SlideShowView.tagAdapter.addAll(AlbumView.imgAdapter.uris.get(SlideShowView.index).tags);
-                            SlideShowView.gridView.setAdapter(SlideShowView.tagAdapter);
-                            write();
-                            finish();
+                            if (tags.contains("Location=" + tagData.getText().toString())) {
+                                Toast.makeText(getApplicationContext(), "This tag already exists", Toast.LENGTH_SHORT).show();
+                            } else {
+                                AlbumView.imgAdapter.uris.get(SlideShowView.index).addTag("Location=" + tagData.getText().toString()); SlideShowView.gridView.setAdapter(SlideShowView.tagAdapter);
+                                write();
+                                finish();
+                            }
+                            //                   SlideShowView.tagAdapter.addAll(AlbumView.imgAdapter.uris.get(SlideShowView.index).tags);
+
                             break;
                         case 2131165294:
-                            AlbumView.imgAdapter.uris.get(AlbumView.index).addTag("Person=" + tagData.getText().toString());
-                            SlideShowView.gridView.setAdapter(SlideShowView.tagAdapter);
-                            write();
-                            finish();
+                            if (tags.contains("Person=" + tagData.getText().toString())) {
+                                Toast.makeText(getApplicationContext(), "This tag already exists", Toast.LENGTH_SHORT).show();
+                            } else {
+                                AlbumView.imgAdapter.uris.get(SlideShowView.index).addTag("Person=" + tagData.getText().toString());
+                                SlideShowView.gridView.setAdapter(SlideShowView.tagAdapter);
+                                write();
+                                finish();
+                            }
                             break;
                         default:
                             break;

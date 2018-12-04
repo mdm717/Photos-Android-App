@@ -170,6 +170,7 @@ public class SlideShowView extends AppCompatActivity {
 // FILE PATH    /data/user/0/com.craigmsirota.photos/files/albums.albm
         try {
             ArrayList<Photo> uris = AlbumView.imgAdapter.getPhotos();
+            ArrayList<String> tags = new ArrayList<>();
 
             String str = "";
             FileOutputStream fileOutputStream = openFileOutput(HomeScreen.albumName+".list", MODE_PRIVATE);
@@ -184,8 +185,11 @@ public class SlideShowView extends AppCompatActivity {
                     Toast.makeText(this, "Wrote " +u.toString(),
                             Toast.LENGTH_SHORT).show();
                 }
-                for (Tag t : u.tags){
-                    str = str + "\nTAG:" + t.toString();
+                for (Tag t : u.tags) {
+                    if(!(tags.contains(t.toString()))){
+                        tags.add(t.toString());
+                        str = str + "\nTAG:" + t.toString();
+                    }
                 }
             }
 

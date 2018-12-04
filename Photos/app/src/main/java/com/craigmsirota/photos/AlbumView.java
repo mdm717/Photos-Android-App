@@ -196,10 +196,14 @@ public class AlbumView extends AppCompatActivity {
             InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
             String lineIn;
+            ArrayList<String> tags = new ArrayList<>();
 
             while ((lineIn = bufferedReader.readLine()) != null) {
                 if (lineIn.substring(0,4).equals("TAG:")) {
-                    imgAdapter.getPhoto(imgAdapter.getCount()-1).addTag(lineIn.substring(4));
+                    if(!(tags.contains(lineIn.substring(4)))) {
+                        tags.add(lineIn.substring(4));
+                        imgAdapter.getPhoto(imgAdapter.getCount() - 1).addTag(lineIn.substring(4));
+                    }
                 } else {
                     imgAdapter.add(Uri.parse(lineIn));
                 }
@@ -221,6 +225,7 @@ public class AlbumView extends AppCompatActivity {
 // FILE PATH    /data/user/0/com.craigmsirota.photos/files/albums.albm
         try {
             ArrayList<Photo> uris = imgAdapter.getPhotos();
+            ArrayList<String> tags = new ArrayList<>();
 
             String str = "";
             FileOutputStream fileOutputStream = openFileOutput(HomeScreen.albumName+".list", MODE_PRIVATE);
@@ -235,8 +240,11 @@ public class AlbumView extends AppCompatActivity {
                     Toast.makeText(this, "Wrote " +u.toString(),
                             Toast.LENGTH_SHORT).show();
                 }
-                for (Tag t : u.tags){
-                    str = str + "\nTAG:" + t.toString();
+                for (Tag t : u.tags) {
+                    if(!(tags.contains(t.toString()))){
+                        tags.add(t.toString());
+                        str = str + "\nTAG:" + t.toString();
+                    }
                 }
             }
 
