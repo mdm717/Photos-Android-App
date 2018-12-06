@@ -8,6 +8,9 @@
         android:minSdkVersion="28"
         android:targetSdkVersion="28" />
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:appComponentFactory="android.support.v4.app.CoreComponentFactory"
@@ -32,6 +35,7 @@
         <activity android:name="com.craigmsirota.photos.AlbumView" />
         <activity android:name="com.craigmsirota.photos.SlideShowView" />
         <activity android:name="com.craigmsirota.photos.NewTag" />
+        <activity android:name="com.craigmsirota.photos.Search" />
 
         <provider
             android:name="com.android.tools.ir.server.InstantRunContentProvider"

@@ -17,6 +17,10 @@ public class Tag implements Serializable {
         this.data = data;
     }
 
+    public String getData(){
+        return data;
+    }
+
     public String toString(){
         return type+"="+data;
     }

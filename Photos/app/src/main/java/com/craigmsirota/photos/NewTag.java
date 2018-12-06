@@ -90,7 +90,6 @@ public class NewTag extends AppCompatActivity {
 
     }
 
-
     public void write(){
 // FILE PATH    /data/user/0/com.craigmsirota.photos/files/albums.albm
         try {
@@ -100,12 +99,12 @@ public class NewTag extends AppCompatActivity {
             FileOutputStream fileOutputStream = openFileOutput(HomeScreen.albumName+".list", MODE_PRIVATE);
             for (Photo u : uris) {
                 if (str.equals("")) {
-                    str = u.toString();
+                    str = u.getUri().toString();
 
                     Toast.makeText(this, "Wrote " +u.toString(),
                             Toast.LENGTH_SHORT).show();
                 } else {
-                    str = str + "\n" + u.toString();
+                    str = str + "\n" + u.getUri().toString();
                     Toast.makeText(this, "Wrote " +u.toString(),
                             Toast.LENGTH_SHORT).show();
                 }

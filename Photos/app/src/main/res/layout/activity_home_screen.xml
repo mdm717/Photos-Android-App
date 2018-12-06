@@ -11,7 +11,13 @@
     <GridView
         android:id="@+id/gridView1"
         android:layout_width="match_parent"
-        android:layout_height="452dp" />
+        android:layout_height="396dp" />
+
+    <Button
+        android:id="@+id/search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Search" />
 
     <LinearLayout
         android:layout_width="match_parent"

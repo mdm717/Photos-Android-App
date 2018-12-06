@@ -72,14 +72,16 @@ public class SlideShowView extends AppCompatActivity {
 
         if (AlbumView.imgAdapter.uris.get(index).tags.size() == 0) {
             delete.setVisibility(View.INVISIBLE);
+        } else {
+            delete.setVisibility(View.VISIBLE);
         }
 
         if (AlbumView.imgAdapter.getCount() == 1) {
             prev.setVisibility(View.INVISIBLE);
             next.setVisibility(View.INVISIBLE);
-        } else if(index == 0) {
+        } else if (index == 0) {
             prev.setVisibility(View.INVISIBLE);
-        } else if (index == AlbumView.imgAdapter.getCount()-1) {
+        } else if (index == AlbumView.imgAdapter.getCount() - 1) {
             next.setVisibility(View.INVISIBLE);
         }
 
@@ -88,11 +90,9 @@ public class SlideShowView extends AppCompatActivity {
             InputStream pictureInputStream = getContentResolver().openInputStream(AlbumView.imgAdapter.uris.get(index).getUri());
             Bitmap currPic = BitmapFactory.decodeStream(pictureInputStream);
             imgView.setImageBitmap(currPic);
-        } catch(FileNotFoundException e){
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-
-
 
 
 //        System.out.println(AlbumView.imgAdapter.uris.get(index).getUri().toString()+"-------------------------");
@@ -107,12 +107,18 @@ public class SlideShowView extends AppCompatActivity {
         prev.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(index>0){
+                if (index > 0) {
                     index--;
-                    if (next.getVisibility()==View.INVISIBLE){
+                    if (AlbumView.imgAdapter.uris.get(index).tags.size() == 0) {
+                        delete.setVisibility(View.INVISIBLE);
+                    } else {
+                        delete.setVisibility(View.VISIBLE);
+                    }
+
+                    if (next.getVisibility() == View.INVISIBLE) {
                         next.setVisibility(View.VISIBLE);
                     }
-                    if (index==0) {
+                    if (index == 0) {
                         prev.setVisibility(View.INVISIBLE);
                     }
                     try {
@@ -124,7 +130,7 @@ public class SlideShowView extends AppCompatActivity {
                         tagAdapter = new ArrayAdapter<Tag>(getApplicationContext(), android.R.layout.simple_list_item_1, AlbumView.imgAdapter.uris.get(index).tags);
 
                         gridView.setAdapter(tagAdapter);
-                    } catch (FileNotFoundException e2){
+                    } catch (FileNotFoundException e2) {
                         e2.printStackTrace();
                     }
                 }
@@ -134,12 +140,18 @@ public class SlideShowView extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(index<AlbumView.imgAdapter.getCount()-1) {
+                if (index < AlbumView.imgAdapter.getCount() - 1) {
                     index++;
-                    if (prev.getVisibility()==View.INVISIBLE){
+                    if (AlbumView.imgAdapter.uris.get(index).tags.size() == 0) {
+                        delete.setVisibility(View.INVISIBLE);
+                    } else {
+                        delete.setVisibility(View.VISIBLE);
+                    }
+
+                    if (prev.getVisibility() == View.INVISIBLE) {
                         prev.setVisibility(View.VISIBLE);
                     }
-                    if (index==AlbumView.imgAdapter.getCount()-1) {
+                    if (index == AlbumView.imgAdapter.getCount() - 1) {
                         next.setVisibility(View.INVISIBLE);
                     }
                     try {
@@ -151,7 +163,7 @@ public class SlideShowView extends AppCompatActivity {
                         tagAdapter = new ArrayAdapter<Tag>(getApplicationContext(), android.R.layout.simple_list_item_1, AlbumView.imgAdapter.uris.get(index).tags);
 
                         gridView.setAdapter(tagAdapter);
-                    }catch(FileNotFoundException e1){
+                    } catch (FileNotFoundException e1) {
                         e1.printStackTrace();
                     }
                 }
@@ -169,7 +181,7 @@ public class SlideShowView extends AppCompatActivity {
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(tagIndex!=-1){
+                if (tagIndex != -1) {
                     AlbumView.imgAdapter.uris.get(index).tags.remove(tagIndex);
                     tagAdapter = new ArrayAdapter<Tag>(getApplicationContext(), android.R.layout.simple_list_item_1, AlbumView.imgAdapter.uris.get(index).tags);
 
@@ -186,16 +198,32 @@ public class SlideShowView extends AppCompatActivity {
     }
 
 
-
     public void write(){
 // FILE PATH    /data/user/0/com.craigmsirota.photos/files/albums.albm
         try {
             ArrayList<Photo> uris = AlbumView.imgAdapter.getPhotos();
-            ArrayList<String> tags = new ArrayList<>();
+            ArrayList<Tag> tags = new ArrayList<>();
 
             String str = "";
             FileOutputStream fileOutputStream = openFileOutput(HomeScreen.albumName+".list", MODE_PRIVATE);
             for (Photo u : uris) {
+                for (int i = 0; i < u.tags.size(); i++){
+                    boolean b = false;
+                    Tag t = u.tags.get(i);
+
+                    for (Tag t1 :tags) {
+                        if (t.type.equals(t1.type)&&t.getData().equals(t1.getData())){
+                            b=true;
+                            u.tags.remove(i);
+                            break;
+                        }
+                    }
+                    if (!b) {
+                        tags.add(t);
+                        i--;
+                    }
+
+                }
                 if (str.equals("")) {
                     str = u.toString();
 
@@ -206,16 +234,10 @@ public class SlideShowView extends AppCompatActivity {
                     Toast.makeText(this, "Wrote " +u.toString(),
                             Toast.LENGTH_SHORT).show();
                 }
-                for (Tag t : u.tags) {
-                    if(!(tags.contains(t.toString()))){
-                        tags.add(t.toString());
-                        str = str + "\nTAG:" + t.toString();
-                    }
-                }
             }
 
             fileOutputStream.write(str.getBytes());
-
+            //fileOutputStream.write("BACON".getBytes());
             Toast.makeText(this, "Saved to " + getFilesDir() + File.separator + HomeScreen.albumName+".list",
                     Toast.LENGTH_LONG).show();
 
@@ -227,4 +249,6 @@ public class SlideShowView extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+
 }
+

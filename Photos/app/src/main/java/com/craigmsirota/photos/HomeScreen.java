@@ -27,7 +27,7 @@ import java.util.ArrayList;
 
 public class HomeScreen extends AppCompatActivity {
     public static GridView gridView;
-    Button newButton, delete, rename, open;
+    Button newButton, delete, rename, open, search;
     public static ArrayList<String> albums;
     public static String albumName;
     private static int index;
@@ -42,6 +42,7 @@ public class HomeScreen extends AppCompatActivity {
 
 
         gridView = (GridView) findViewById(R.id.gridView1);
+        search = (Button) findViewById(R.id.search);
         newButton = (Button) findViewById(R.id.newButton);
         open = (Button) findViewById(R.id.open);
         delete = (Button) findViewById(R.id.delete);
@@ -112,6 +113,13 @@ public class HomeScreen extends AppCompatActivity {
             }
         });
 
+        search.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openSearch();
+            }
+        });
+
         newButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -136,6 +144,11 @@ public class HomeScreen extends AppCompatActivity {
 
     private void openAlbum(){
         Intent intent = new Intent(this, AlbumView.class);
+        startActivity(intent);
+    }
+
+    private void openSearch(){
+        Intent intent = new Intent(this, Search.class);
         startActivity(intent);
     }
 

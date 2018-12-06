@@ -768,6 +768,7 @@ id screen
 id scrollIndicatorDown
 id scrollIndicatorUp
 id scrollView
+id search
 id search_badge
 id search_bar
 id search_button
@@ -852,6 +853,7 @@ layout activity_edit_album
 layout activity_home_screen
 layout activity_new_album
 layout activity_new_tag
+layout activity_search
 layout activity_slide_show_view
 layout dialog_new_album
 layout notification_action
@@ -923,6 +925,7 @@ string new_name
 string next
 string paste
 string prev
+string search
 string search_menu_title
 string status_bar_notification_info_overflow
 style AlertDialog_AppCompat

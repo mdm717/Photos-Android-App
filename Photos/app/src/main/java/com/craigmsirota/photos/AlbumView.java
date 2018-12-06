@@ -48,7 +48,6 @@ public class AlbumView extends AppCompatActivity {
 
     public static Album album = new Album();
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +55,9 @@ public class AlbumView extends AppCompatActivity {
 
         gridView = findViewById(R.id.GridView);
         add = (Button) findViewById(R.id.add);
+        if (HomeScreen.albumName.equals("SearchRes")){
+            add.setVisibility(View.INVISIBLE);
+        }
         copy = findViewById(R.id.Copy);
         copy.setVisibility(View.INVISIBLE);
         paste = (Button) findViewById(R.id.paste);
@@ -225,11 +227,27 @@ public class AlbumView extends AppCompatActivity {
 // FILE PATH    /data/user/0/com.craigmsirota.photos/files/albums.albm
         try {
             ArrayList<Photo> uris = imgAdapter.getPhotos();
-            ArrayList<String> tags = new ArrayList<>();
 
             String str = "";
             FileOutputStream fileOutputStream = openFileOutput(HomeScreen.albumName+".list", MODE_PRIVATE);
             for (Photo u : uris) {
+                ArrayList<Tag> tags = new ArrayList<>();
+                for (int i = 0; i < u.tags.size(); i++){
+                    boolean b = false;
+                    Tag t = u.tags.get(i);
+
+                    for (Tag t1 :tags) {
+                        if (t.type.equals(t1.type)&&t.getData().equals(t1.getData())){
+                            b=true;
+                            u.tags.remove(i);
+                            break;
+                        }
+                    }
+                    if (!b) {
+                        tags.add(t);
+                    }
+
+                }
                 if (str.equals("")) {
                     str = u.toString();
 
@@ -240,16 +258,10 @@ public class AlbumView extends AppCompatActivity {
                     Toast.makeText(this, "Wrote " +u.toString(),
                             Toast.LENGTH_SHORT).show();
                 }
-                for (Tag t : u.tags) {
-                    if(!(tags.contains(t.toString()))){
-                        tags.add(t.toString());
-                        str = str + "\nTAG:" + t.toString();
-                    }
-                }
             }
 
             fileOutputStream.write(str.getBytes());
-
+            //fileOutputStream.write("BACON".getBytes());
             Toast.makeText(this, "Saved to " + getFilesDir() + File.separator + HomeScreen.albumName+".list",
                     Toast.LENGTH_LONG).show();
 

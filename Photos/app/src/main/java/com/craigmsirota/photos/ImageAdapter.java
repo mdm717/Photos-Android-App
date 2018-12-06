@@ -85,7 +85,5 @@ public class ImageAdapter extends BaseAdapter {
         uris.clear();
     }
 
-
-
 }
 

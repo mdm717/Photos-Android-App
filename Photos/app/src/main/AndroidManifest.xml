@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.craigmsirota.photos">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -22,7 +25,8 @@
         <activity android:name=".EditAlbum" />
         <activity android:name=".AlbumView" />
         <activity android:name=".SlideShowView" />
-        <activity android:name=".NewTag"></activity>
+        <activity android:name=".NewTag" />
+        <activity android:name=".Search"></activity>
     </application>
 
 </manifest>
