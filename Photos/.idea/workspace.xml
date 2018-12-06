@@ -47,6 +47,15 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="Search.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/craigmsirota/photos/Search.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="427">
+              <caret line="82" column="65" selection-start-line="82" selection-start-column="65" selection-end-line="82" selection-end-column="65" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="Photo.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/craigmsirota/photos/Photo.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -77,13 +86,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SlideShowView.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BSTN.list" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/Documents/AndroidStudio/DeviceExplorer/Nexus_4_API_28 [emulator-5554]/data/user/0/com.craigmsirota.photos/files/BSTN.list">
+          <provider selected="true" editor-type-id="text-editor">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SlideShowView.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/craigmsirota/photos/SlideShowView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2159">
-              <caret line="185" selection-start-line="185" selection-end-line="185" />
+            <state relative-caret-position="-414">
+              <caret line="145" column="61" selection-start-line="145" selection-start-column="61" selection-end-line="145" selection-end-column="61" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#3723#5246#0" expanded="true" />
+                <element signature="e#5245#5246#0" expanded="true" />
+                <element signature="e#5281#6872#0" expanded="true" />
+                <element signature="e#6871#6872#0" expanded="true" />
+                <element signature="e#6907#7148#0" expanded="true" />
+                <element signature="e#7147#7148#0" expanded="true" />
+                <element signature="e#7186#7840#0" expanded="true" />
+                <element signature="e#7839#7840#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -2406,10 +2430,10 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/craigmsirota/photos/ImageAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_search.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/craigmsirota/photos/Tag.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/craigmsirota/photos/Search.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/craigmsirota/photos/SlideShowView.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/craigmsirota/photos/NewTag.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/craigmsirota/photos/AlbumView.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/craigmsirota/photos/SlideShowView.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/craigmsirota/photos/Search.java" />
       </list>
     </option>
   </component>
@@ -2713,13 +2737,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/craigmsirota/photos/Photo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/craigmsirota/photos/HomeScreen.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
@@ -2931,18 +2948,6 @@
     <entry file="file://$USER_HOME$/Documents/AndroidStudio/DeviceExplorer/emulator-5554/data/user/0/com.craigmsirota.photos/files/Sdfghjk.list" />
     <entry file="file://$USER_HOME$/Documents/AndroidStudio/DeviceExplorer/emulator-5554/data/user/0/com.craigmsirota.photos/files/Chhee.list" />
     <entry file="file://$USER_HOME$/Documents/AndroidStudio/DeviceExplorer/emulator-5554/data/user/0/com.craigmsirota.photos/files/SearchRes.list" />
-    <entry file="file://$USER_HOME$/Documents/AndroidStudio/DeviceExplorer/Nexus_4_API_28 [emulator-5554]/data/user/0/com.craigmsirota.photos/files/SearchRes.list">
-      <provider selected="true" editor-type-id="text-editor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/craigmsirota/photos/Search.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-571">
-          <caret line="135" column="13" selection-start-line="135" selection-start-column="13" selection-end-line="135" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_search.xml">
       <provider selected="true" editor-type-id="android-designer2">
         <state />
@@ -2979,11 +2984,46 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/Documents/AndroidStudio/DeviceExplorer/Nexus_4_API_28 [emulator-5554]/data/user/0/com.craigmsirota.photos/files/Tezt.list">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="19" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/craigmsirota/photos/NewTag.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="338">
           <caret line="91" selection-start-line="91" selection-end-line="91" />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/craigmsirota/photos/SlideShowView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-414">
+          <caret line="145" column="61" selection-start-line="145" selection-start-column="61" selection-end-line="145" selection-end-column="61" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3723#5246#0" expanded="true" />
+            <element signature="e#5245#5246#0" expanded="true" />
+            <element signature="e#5281#6872#0" expanded="true" />
+            <element signature="e#6871#6872#0" expanded="true" />
+            <element signature="e#6907#7148#0" expanded="true" />
+            <element signature="e#7147#7148#0" expanded="true" />
+            <element signature="e#7186#7840#0" expanded="true" />
+            <element signature="e#7839#7840#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Documents/AndroidStudio/DeviceExplorer/Nexus_4_API_28 [emulator-5554]/data/user/0/com.craigmsirota.photos/files/BSTN.list">
+      <provider selected="true" editor-type-id="text-editor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Documents/AndroidStudio/DeviceExplorer/Nexus_4_API_28 [emulator-5554]/data/user/0/com.craigmsirota.photos/files/SearchRes.list">
+      <provider selected="true" editor-type-id="text-editor">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/craigmsirota/photos/AlbumView.java">
@@ -2993,20 +3033,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Documents/AndroidStudio/DeviceExplorer/Nexus_4_API_28 [emulator-5554]/data/user/0/com.craigmsirota.photos/files/Tezt.list">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/craigmsirota/photos/Search.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="19" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/craigmsirota/photos/SlideShowView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2159">
-          <caret line="185" selection-start-line="185" selection-end-line="185" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="427">
+          <caret line="82" column="65" selection-start-line="82" selection-start-column="65" selection-end-line="82" selection-end-column="65" />
         </state>
       </provider>
     </entry>

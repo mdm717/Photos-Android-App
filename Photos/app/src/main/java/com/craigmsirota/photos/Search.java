@@ -24,7 +24,7 @@ public class Search extends AppCompatActivity {
     private RadioButton loc, person;
     private RadioGroup rg;
     private EditText tagData;
-    private Button send, cancel;
+    private Button search, cancel;
     private int type = -1;
     private static ArrayList<Photo> searched = new ArrayList<>();
     private static ArrayList<Photo> sList = new ArrayList<>();
@@ -42,7 +42,7 @@ public class Search extends AppCompatActivity {
         person = (RadioButton) findViewById(R.id.person);
 
         tagData = (EditText) findViewById(R.id.data);
-        send = (Button) findViewById(R.id.search);
+        search = (Button) findViewById(R.id.search);
         cancel = (Button) findViewById(R.id.cancel);
 
         cancel.setOnClickListener(new View.OnClickListener() {
@@ -52,7 +52,7 @@ public class Search extends AppCompatActivity {
             }
         });
 
-        send.setOnClickListener(new View.OnClickListener() {
+        search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 ArrayList<String> tags = new ArrayList<>();
@@ -62,7 +62,7 @@ public class Search extends AppCompatActivity {
                 type = rg.getCheckedRadioButtonId();
                 if (!tagData.getText().toString().equals("")) {
                     switch (type) {
-                        case 2131165275:
+                        case 2131165275:    //location radio button
                             for (Photo p : searched) {
                                 for (Tag t : p.tags){
                                     if (t.getData().contains(tagData.getText().toString()) &&
@@ -80,7 +80,7 @@ public class Search extends AppCompatActivity {
                             //                   SlideShowView.tagAdapter.addAll(AlbumView.imgAdapter.uris.get(SlideShowView.index).tags);
 
                             break;
-                        case 2131165294:
+                        case 2131165294:    //person radio button
                             for (Photo p : searched) {
                                 for (Tag t : p.tags){
                                     if (t.getData().contains(tagData.getText().toString()) &&
