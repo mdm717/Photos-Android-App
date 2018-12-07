@@ -5,28 +5,36 @@
     build-mode="COLD"
     density="xhdpi"
     format="10"
+    ir-eligibility="COMPATIBLE"
     plugin-version="3.2.1"
-    timestamp="1544080361034"
+    timestamp="1544161130763"
     token="6247371676523430297"
     verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="0" />
+        duration="102" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="0" />
+        duration="11" />
     <task
         name="verifier"
-        duration="0" />
+        duration="1" />
+
+    <artifact
+        location="/Users/craigsirota/cs213project4/Photos/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
+        type="SPLIT" />
 
     <build
         build-mode="FULL"
-        timestamp="1544076880834"
+        timestamp="1544160112800"
         verifier="FULL_BUILD_REQUESTED" >
+        <artifact
+            location="/Users/craigsirota/cs213project4/Photos/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
+            type="SPLIT" />
         <artifact
             location="/Users/craigsirota/cs213project4/Photos/app/build/intermediates/split-apk/debug/slices/slice_4.apk"
             type="SPLIT" />
@@ -44,9 +52,6 @@
             type="SPLIT" />
         <artifact
             location="/Users/craigsirota/cs213project4/Photos/app/build/intermediates/resources/instant-run/debug/resources-debug.apk"
-            type="SPLIT" />
-        <artifact
-            location="/Users/craigsirota/cs213project4/Photos/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
             type="SPLIT" />
         <artifact
             location="/Users/craigsirota/cs213project4/Photos/app/build/intermediates/split-apk/debug/slices/slice_3.apk"
@@ -70,15 +75,11 @@
     <build
         build-mode="COLD"
         ir-eligibility="COMPATIBLE"
-        timestamp="1544080164907"
+        timestamp="1544161130763"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="/Users/craigsirota/cs213project4/Photos/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
             type="SPLIT" />
     </build>
-    <build
-        build-mode="COLD"
-        timestamp="1544080361034"
-        verifier="COLD_SWAP_REQUESTED" />
 
 </instant-run>

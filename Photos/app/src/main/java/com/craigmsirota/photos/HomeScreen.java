@@ -65,8 +65,6 @@ public class HomeScreen extends AppCompatActivity {
         gridView.setOnItemClickListener(new OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
-                Toast.makeText(getApplicationContext(),
-                        ((TextView) v).getText()+"" + position, Toast.LENGTH_SHORT).show();
                 index = position;
                 open.setVisibility(View.VISIBLE);
                 delete.setVisibility(View.VISIBLE);
@@ -172,8 +170,6 @@ public class HomeScreen extends AppCompatActivity {
                 list.add(lineIn);
             }
 
-            Toast.makeText(this, "Read From " + getFilesDir() + File.separator + "albums.albm",
-                    Toast.LENGTH_LONG).show();
             strings = new String[list.size()];
 
             for (int i = 0; i < list.size(); i++){
@@ -204,8 +200,6 @@ public class HomeScreen extends AppCompatActivity {
 
             fileOutputStream.write(str.getBytes());
 
-            Toast.makeText(this, "Saved to " + getFilesDir() + File.separator + "albums.albm",
-                    Toast.LENGTH_LONG).show();
 
         }catch(FileNotFoundException e){
             e.printStackTrace();

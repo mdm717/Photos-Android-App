@@ -39,18 +39,13 @@ public class EditAlbum extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 int index = HomeScreen.getIndex();
-                Toast.makeText(getApplicationContext(), "Test", Toast.LENGTH_LONG).show();
                 if (!albumName.getText().toString().isEmpty() && !HomeScreen.albums.contains(albumName.getText().toString())) {
-                    Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_SHORT).show();
 
                     Toast.makeText(getApplicationContext(), HomeScreen.albums.get(index), Toast.LENGTH_SHORT).show();
                     try {
 
-                        Toast.makeText(getApplicationContext(), "Ceedsfadfadsfaads", Toast.LENGTH_SHORT).show();
                         File old = new File((getFilesDir() + File.separator + HomeScreen.albums.get(index)+".list"));
-                        Toast.makeText(getApplicationContext(), "File1", Toast.LENGTH_SHORT).show();
                         FileOutputStream fileOutputStream = openFileOutput(albumName.getText().toString()+".list", MODE_PRIVATE);
-                        Toast.makeText(getApplicationContext(), "File2", Toast.LENGTH_SHORT).show();
 
                         //         File file = new File(HomeScreen.albums.get(index)+".list");
                         String path = old.toPath().toUri().toString();
@@ -109,9 +104,6 @@ public class EditAlbum extends AppCompatActivity {
 
             fileOutputStream.write(str.getBytes());
 
-            Toast.makeText(this, "Saved to " + getFilesDir() + File.separator + "albums.albm",
-                    Toast.LENGTH_LONG).show();
-
         }catch(FileNotFoundException e){
             e.printStackTrace();
         } catch(ArrayIndexOutOfBoundsException e){
@@ -136,8 +128,6 @@ public class EditAlbum extends AppCompatActivity {
                 list.add(lineIn);
             }
 
-            Toast.makeText(this, "Read From " + getFilesDir() + File.separator + "albums.albm",
-                    Toast.LENGTH_LONG).show();
             strings = new String[list.size()];
 
             for (int i = 0; i < list.size(); i++){

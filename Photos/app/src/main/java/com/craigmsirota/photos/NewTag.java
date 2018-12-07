@@ -56,7 +56,6 @@ public class NewTag extends AppCompatActivity {
                 }
 
                 type = rg.getCheckedRadioButtonId();
-                Toast.makeText(getApplicationContext(),((int)type) + "", Toast.LENGTH_SHORT).show();
                 if (!tagData.getText().toString().equals("")) {
                     switch (type) {
                         case 2131165275:
@@ -101,12 +100,8 @@ public class NewTag extends AppCompatActivity {
                 if (str.equals("")) {
                     str = u.getUri().toString();
 
-                    Toast.makeText(this, "Wrote " +u.toString(),
-                            Toast.LENGTH_SHORT).show();
                 } else {
                     str = str + "\n" + u.getUri().toString();
-                    Toast.makeText(this, "Wrote " +u.toString(),
-                            Toast.LENGTH_SHORT).show();
                 }
                 for (Tag t : u.tags){
                     str = str + "\nTAG:" + t.toString();
@@ -115,8 +110,6 @@ public class NewTag extends AppCompatActivity {
 
             fileOutputStream.write(str.getBytes());
 
-            Toast.makeText(this, "Saved to " + getFilesDir() + File.separator + HomeScreen.albumName+".list",
-                    Toast.LENGTH_LONG).show();
 
         }catch(FileNotFoundException e){
             e.printStackTrace();

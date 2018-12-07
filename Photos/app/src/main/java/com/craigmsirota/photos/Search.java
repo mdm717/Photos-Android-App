@@ -56,11 +56,19 @@ public class Search extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 ArrayList<String> tags = new ArrayList<>();
+                searched.clear();
+                sList.clear();
                 int i = 0;
                 read();
 
                 type = rg.getCheckedRadioButtonId();
                 if (!tagData.getText().toString().equals("")) {
+
+
+//                    for (int j = searched.size()/2; j<searched.size();){
+//                        searched.remove(j);
+//                    }
+
                     switch (type) {
                         case 2131165275:    //location radio button
                             for (Photo p : searched) {
@@ -73,7 +81,6 @@ public class Search extends AppCompatActivity {
                                     }
                                 }
                             }
-                            Toast.makeText(getApplicationContext(), i + "", Toast.LENGTH_SHORT).show();
                             write();
                             finish();
 
@@ -84,7 +91,7 @@ public class Search extends AppCompatActivity {
                             for (Photo p : searched) {
                                 for (Tag t : p.tags){
                                     if (t.getData().contains(tagData.getText().toString()) &&
-                                            t.type=="Person"){
+                                            t.type.equals("Person")){
                                         sList.add(p);
                                         i++;
                                         break;
@@ -114,6 +121,7 @@ public class Search extends AppCompatActivity {
 
     public void read() {
         String[] strings = {};
+        ArrayList<String> masterList = new ArrayList<>();
 
         try {
             FileInputStream fileInputStream = openFileInput("albums.albm");
@@ -127,34 +135,17 @@ public class Search extends AppCompatActivity {
                 list.add(lineIn);
             }
 
-            Toast.makeText(this, "Read From " + getFilesDir() + File.separator + "albums.albm",
-                    Toast.LENGTH_LONG).show();
-            strings = new String[list.size()];
-
-            for (int i = 0; i < list.size(); i++){
-                strings[i] = list.get(i);
-            }
-
-            for (String s : strings) {
+            for (String s : list) {
                 try {
                     FileInputStream fileInputStream2 = openFileInput(s + ".list");
 
                     InputStreamReader inputStreamReader2 = new InputStreamReader(fileInputStream2);
                     BufferedReader bufferedReader2 = new BufferedReader(inputStreamReader2);
-                    String lineIn2;
-                    ArrayList<String> tags = new ArrayList<>();
 
-                    while ((lineIn2 = bufferedReader2.readLine()) != null) {
-                        if (lineIn2.substring(0,4).equals("TAG:")) {
-                            if(!(tags.contains(lineIn2.substring(4)))) {
-                                tags.add(lineIn2.substring(4));
-
-                                searched.get(searched.size() - 1).addTag(lineIn2.substring(4));
-                            }
-                        } else {
-                            searched.add(new Photo(Uri.parse(lineIn2)));
-                        }
+                    while ((lineIn = bufferedReader2.readLine()) != null) {
+                        masterList.add(lineIn);
                     }
+
 
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
@@ -163,11 +154,23 @@ public class Search extends AppCompatActivity {
                 }
             }
 
+            for (String input: masterList) {
+                if (input.substring(0,4).equals("TAG:")) {
+                        searched.get(searched.size() - 1).addTag(input.substring(4));
+                } else {
+                    searched.add(new Photo(Uri.parse(input)));
+                }
+            }
+if(true){}
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+
+
+
     }
 
 

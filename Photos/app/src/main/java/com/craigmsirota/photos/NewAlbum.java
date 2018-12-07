@@ -72,8 +72,6 @@ public class NewAlbum extends AppCompatActivity {
 
             fileOutputStream.write(str.getBytes());
 
-            Toast.makeText(this, "Saved to " + getFilesDir() + File.separator + "albums.albm",
-                    Toast.LENGTH_LONG).show();
 
         }catch(FileNotFoundException e){
             e.printStackTrace();

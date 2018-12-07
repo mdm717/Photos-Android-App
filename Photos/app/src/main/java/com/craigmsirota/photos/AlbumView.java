@@ -48,6 +48,19 @@ public class AlbumView extends AppCompatActivity {
 
     public static Album album = new Album();
 
+    /**
+     * This method updates the data when the activity resumes
+     */
+    @Override
+    protected void onResume() {
+        super.onResume();
+        read();
+    }
+
+    /**
+     * This method sets the data and click listeners when an activity is created
+     * @param savedInstanceState    Bundle
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -177,9 +190,6 @@ public class AlbumView extends AppCompatActivity {
             Photo picture = new Photo(data.getData());
             Uri imageUri = data.getData();
 
-
-            Toast.makeText(getApplicationContext(), imageUri.toString(),Toast.LENGTH_LONG).show();
-
             imgAdapter.add(imageUri);
             gridView.setAdapter(imgAdapter);
             album.list.add(picture);
@@ -188,7 +198,9 @@ public class AlbumView extends AppCompatActivity {
         }
     }
 
-
+    /**
+     * This method reads an album's data and stores it into the correct object
+     */
     public void read() {
         String[] strings = {};
         imgAdapter.clear();
@@ -213,9 +225,6 @@ public class AlbumView extends AppCompatActivity {
 
             gridView.setAdapter(imgAdapter);
 
-            Toast.makeText(this, "Read From " + getFilesDir() + File.separator + HomeScreen.albumName + ".list",
-                    Toast.LENGTH_LONG).show();
-
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -223,6 +232,9 @@ public class AlbumView extends AppCompatActivity {
         }
     }
 
+    /**
+     * This method takes the app data and saves it into the corresponding album file
+     */
     public void write(){
 // FILE PATH    /data/user/0/com.craigmsirota.photos/files/albums.albm
         try {
@@ -250,20 +262,12 @@ public class AlbumView extends AppCompatActivity {
                 }
                 if (str.equals("")) {
                     str = u.toString();
-
-                    Toast.makeText(this, "Wrote " +u.toString(),
-                            Toast.LENGTH_SHORT).show();
                 } else {
                     str = str + "\n" + u.toString();
-                    Toast.makeText(this, "Wrote " +u.toString(),
-                            Toast.LENGTH_SHORT).show();
                 }
             }
 
             fileOutputStream.write(str.getBytes());
-            //fileOutputStream.write("BACON".getBytes());
-            Toast.makeText(this, "Saved to " + getFilesDir() + File.separator + HomeScreen.albumName+".list",
-                    Toast.LENGTH_LONG).show();
 
         }catch(FileNotFoundException e){
             e.printStackTrace();
@@ -274,6 +278,10 @@ public class AlbumView extends AppCompatActivity {
         }
     }
 
+    /**
+     * This method sets the visibility of the copy, move, display, and delete buttons based on the input parameter
+     * @param vis   boolean true -> visible, false -> invisible
+     */
     private void makeVisible(boolean vis){
         copy.setVisibility(vis ? View.VISIBLE : View.INVISIBLE);
         move.setVisibility(vis ? View.VISIBLE : View.INVISIBLE);

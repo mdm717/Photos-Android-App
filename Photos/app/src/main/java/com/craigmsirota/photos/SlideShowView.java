@@ -12,7 +12,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -207,39 +206,16 @@ public class SlideShowView extends AppCompatActivity {
             String str = "";
             FileOutputStream fileOutputStream = openFileOutput(HomeScreen.albumName+".list", MODE_PRIVATE);
             for (Photo u : uris) {
-                for (int i = 0; i < u.tags.size(); i++){
-                    boolean b = false;
-                    Tag t = u.tags.get(i);
-
-                    for (Tag t1 :tags) {
-                        if (t.type.equals(t1.type)&&t.getData().equals(t1.getData())){
-                            b=true;
-                            u.tags.remove(i);
-                            break;
-                        }
-                    }
-                    if (!b) {
-                        tags.add(t);
-                        i--;
-                    }
-
-                }
                 if (str.equals("")) {
                     str = u.toString();
 
-                    Toast.makeText(this, "Wrote " +u.toString(),
-                            Toast.LENGTH_SHORT).show();
                 } else {
                     str = str + "\n" + u.toString();
-                    Toast.makeText(this, "Wrote " +u.toString(),
-                            Toast.LENGTH_SHORT).show();
                 }
             }
 
             fileOutputStream.write(str.getBytes());
             //fileOutputStream.write("BACON".getBytes());
-            Toast.makeText(this, "Saved to " + getFilesDir() + File.separator + HomeScreen.albumName+".list",
-                    Toast.LENGTH_LONG).show();
 
         }catch(FileNotFoundException e){
             e.printStackTrace();
