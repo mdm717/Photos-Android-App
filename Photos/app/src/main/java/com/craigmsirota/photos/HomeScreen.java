@@ -1,8 +1,12 @@
 package com.craigmsirota.photos;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
-import android.support.v7.app.AlertDialog;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -25,6 +29,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
+import static android.content.Context.MODE_PRIVATE;
+
 public class HomeScreen extends AppCompatActivity {
     public static GridView gridView;
     Button newButton, delete, rename, open, search;
@@ -41,6 +47,7 @@ public class HomeScreen extends AppCompatActivity {
         setContentView(R.layout.activity_home_screen);
 
 
+
         gridView = (GridView) findViewById(R.id.gridView1);
         search = (Button) findViewById(R.id.search);
         newButton = (Button) findViewById(R.id.newButton);
@@ -52,6 +59,16 @@ public class HomeScreen extends AppCompatActivity {
         rename.setVisibility(View.INVISIBLE);
 
         isCopy = false;
+
+        
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        if (!prefs.getBoolean("firstTime", false)) {
+
+            // mark first time has ran.
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putBoolean("firstTime", true);
+            editor.commit();
+        }
 
         for (String s:read()) {
             albums.add(s);
@@ -213,4 +230,22 @@ public class HomeScreen extends AppCompatActivity {
     public static int getIndex(){
         return index;
     }
+
+    private void showStartDialog(){
+        new AlertDialog.Builder(this)
+                .setTitle("THIS")
+                .setMessage("LMAO")
+                .setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                }).create().show();
+        /*SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putBoolean("firstStart", false);
+        editor.apply();*/
+    }
+
+
 }
