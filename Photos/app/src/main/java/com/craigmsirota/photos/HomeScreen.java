@@ -1,6 +1,7 @@
 package com.craigmsirota.photos;
 
 import android.app.AlertDialog;
+import android.content.ContentUris;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -150,14 +151,22 @@ public class HomeScreen extends AppCompatActivity {
                 FileOutputStream fileOutputStream = openFileOutput(stockAlbumName + ".list", MODE_PRIVATE);
                 HomeScreen.albums.add(stockAlbumName);
                 writeAlbum();
-                String str = "android.resource://com.craigsirota.photos/raw/stock1.jpg";
+                String str = "android.resource://com.craigmsirota.photos/raw/stock1";
+                addPhoto(str, fileOutputStream);
+                str = "android.resource://com.craigmsirota.photos/raw/stock2";
+                addPhoto(str, fileOutputStream);
+                str = "android.resource://com.craigmsirota.photos/raw/stock3";
+                addPhoto(str, fileOutputStream);
+                str = "android.resource://com.craigmsirota.photos/raw/stock4";
+                addPhoto(str, fileOutputStream);
+                str = "android.resource://com.craigmsirota.photos/raw/stock5";
                 addPhoto(str, fileOutputStream);
             } catch (FileNotFoundException e){
                 e.printStackTrace();
             }
             // mark first time has ran.
             SharedPreferences.Editor editor = prefs.edit();
-            editor.putBoolean("firstTime", true);
+            editor.putBoolean("firstTime", false);
             editor.commit();
         }
 
@@ -244,12 +253,13 @@ public class HomeScreen extends AppCompatActivity {
     }
 
     private void addPhoto(String photoFilePath, FileOutputStream fos){
-    //    File file = new File(Uri.parse(photoFilePath));
+        File file = new File(photoFilePath);
   //      Photo picture = new Photo(Uri.fromFile(file));
+
         /**/
 
         try {
-            fos.write(photoFilePath.getBytes());
+            fos.write((Uri.parse(photoFilePath).toString()+'\n').getBytes());
         } catch (IOException e){
             Toast.makeText(this, "FAILED", Toast.LENGTH_LONG).show();
             e.printStackTrace();

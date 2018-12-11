@@ -871,6 +871,7 @@ int raw stock1 0x7f0b0000
 int raw stock2 0x7f0b0001
 int raw stock3 0x7f0b0002
 int raw stock4 0x7f0b0003
+int raw stock5 0x7f0b0004
 int string abc_action_bar_home_description 0x7f0c0000
 int string abc_action_bar_up_description 0x7f0c0001
 int string abc_action_menu_overflow_description 0x7f0c0002
