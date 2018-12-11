@@ -48,24 +48,7 @@ public class HomeScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        if (prefs.getBoolean("firstTime", true)) {
-            // <---- run your one time code here
-            try {
-                String stockAlbumName = "stock";
-                FileOutputStream fileOutputStream = openFileOutput(stockAlbumName + ".list", MODE_PRIVATE);
-                HomeScreen.albums.add(stockAlbumName);
-                writeAlbum();
-                //String str = "android.resource://com.craigsirota.photos/raw/stock1.jpg";
-                //addPhoto(str, fileOutputStream);
-            } catch (FileNotFoundException e){
-                e.printStackTrace();
-            }
-            // mark first time has ran.
-            SharedPreferences.Editor editor = prefs.edit();
-            editor.putBoolean("firstTime", true);
-            editor.commit();
-        }
+
 
         gridView = (GridView) findViewById(R.id.gridView1);
         search = (Button) findViewById(R.id.search);
@@ -158,6 +141,26 @@ public class HomeScreen extends AppCompatActivity {
                 openEditAlbum();
             }
         });
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        if (prefs.getBoolean("firstTime", true)) {
+            // <---- run your one time code here
+            try {
+                String stockAlbumName = "stock";
+                FileOutputStream fileOutputStream = openFileOutput(stockAlbumName + ".list", MODE_PRIVATE);
+                HomeScreen.albums.add(stockAlbumName);
+                writeAlbum();
+                String str = "android.resource://com.craigsirota.photos/raw/stock1.jpg";
+                addPhoto(str, fileOutputStream);
+            } catch (FileNotFoundException e){
+                e.printStackTrace();
+            }
+            // mark first time has ran.
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putBoolean("firstTime", true);
+            editor.commit();
+        }
+
         write();
     }
 
@@ -241,16 +244,14 @@ public class HomeScreen extends AppCompatActivity {
     }
 
     private void addPhoto(String photoFilePath, FileOutputStream fos){
-        index++;
-        File file = new File(photoFilePath);
-        Photo picture = new Photo(Uri.fromFile(file));
-        Uri imageUri = Uri.fromFile(file);
-
+    //    File file = new File(Uri.parse(photoFilePath));
+  //      Photo picture = new Photo(Uri.fromFile(file));
         /**/
 
         try {
-            fos.write(imageUri.toString().getBytes());
+            fos.write(photoFilePath.getBytes());
         } catch (IOException e){
+            Toast.makeText(this, "FAILED", Toast.LENGTH_LONG).show();
             e.printStackTrace();
         }
     }
