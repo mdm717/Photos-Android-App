@@ -44,6 +44,10 @@
         "source": "C:\\Users\\mdm71\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\7639167c003b177f8e4c2104ab436899\\res\\drawable-mdpi-v4\\abc_btn_check_to_on_mtrl_000.png"
     },
     {
+        "merged": "C:\\Users\\mdm71\\cs213project4\\Photos\\app\\build\\intermediates\\res\\merged\\debug\\raw_stock4.jpg.flat",
+        "source": "C:\\Users\\mdm71\\cs213project4\\Photos\\app\\src\\main\\res\\raw\\stock4.jpg"
+    },
+    {
         "merged": "C:\\Users\\mdm71\\cs213project4\\Photos\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_round.png.flat",
         "source": "C:\\Users\\mdm71\\cs213project4\\Photos\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
     },
@@ -114,6 +118,10 @@
     {
         "merged": "C:\\Users\\mdm71\\cs213project4\\Photos\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_new_album.xml.flat",
         "source": "C:\\Users\\mdm71\\cs213project4\\Photos\\app\\src\\main\\res\\layout\\activity_new_album.xml"
+    },
+    {
+        "merged": "C:\\Users\\mdm71\\cs213project4\\Photos\\app\\build\\intermediates\\res\\merged\\debug\\raw_stock2.jpg.flat",
+        "source": "C:\\Users\\mdm71\\cs213project4\\Photos\\app\\src\\main\\res\\raw\\stock2.jpg"
     },
     {
         "merged": "C:\\Users\\mdm71\\cs213project4\\Photos\\app\\build\\intermediates\\res\\merged\\debug\\color-v23_abc_tint_default.xml.flat",
@@ -536,6 +544,10 @@
         "source": "C:\\Users\\mdm71\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\7639167c003b177f8e4c2104ab436899\\res\\drawable\\abc_item_background_holo_light.xml"
     },
     {
+        "merged": "C:\\Users\\mdm71\\cs213project4\\Photos\\app\\build\\intermediates\\res\\merged\\debug\\raw_stock1.jpg.flat",
+        "source": "C:\\Users\\mdm71\\cs213project4\\Photos\\app\\src\\main\\res\\raw\\stock1.jpg"
+    },
+    {
         "merged": "C:\\Users\\mdm71\\cs213project4\\Photos\\app\\build\\intermediates\\res\\merged\\debug\\drawable_notification_bg_low.xml.flat",
         "source": "C:\\Users\\mdm71\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-28.0.0.aar\\f6dd375c61b75a3ec4ee79e54df84c95\\res\\drawable\\notification_bg_low.xml"
     },
@@ -774,6 +786,10 @@
     {
         "merged": "C:\\Users\\mdm71\\cs213project4\\Photos\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_list_selector_disabled_holo_dark.9.png.flat",
         "source": "C:\\Users\\mdm71\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\7639167c003b177f8e4c2104ab436899\\res\\drawable-mdpi-v4\\abc_list_selector_disabled_holo_dark.9.png"
+    },
+    {
+        "merged": "C:\\Users\\mdm71\\cs213project4\\Photos\\app\\build\\intermediates\\res\\merged\\debug\\raw_stock3.jpg.flat",
+        "source": "C:\\Users\\mdm71\\cs213project4\\Photos\\app\\src\\main\\res\\raw\\stock3.jpg"
     },
     {
         "merged": "C:\\Users\\mdm71\\cs213project4\\Photos\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_action_mode_close_item_material.xml.flat",

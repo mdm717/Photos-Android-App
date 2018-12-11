@@ -30,6 +30,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 import static android.content.Context.MODE_PRIVATE;
+import static com.craigmsirota.photos.AlbumView.imgAdapter;
 
 public class HomeScreen extends AppCompatActivity {
     public static GridView gridView;
@@ -39,6 +40,7 @@ public class HomeScreen extends AppCompatActivity {
     private static int index;
     public static Photo copy;
     public static boolean isCopy;
+    Album stockAlbum = new Album();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +48,24 @@ public class HomeScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
 
-
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        if (prefs.getBoolean("firstTime", true)) {
+            // <---- run your one time code here
+            try {
+                String stockAlbumName = "stock";
+                FileOutputStream fileOutputStream = openFileOutput(stockAlbumName + ".list", MODE_PRIVATE);
+                HomeScreen.albums.add(stockAlbumName);
+                writeAlbum();
+                //String str = "android.resource://com.craigsirota.photos/raw/stock1.jpg";
+                //addPhoto(str, fileOutputStream);
+            } catch (FileNotFoundException e){
+                e.printStackTrace();
+            }
+            // mark first time has ran.
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putBoolean("firstTime", true);
+            editor.commit();
+        }
 
         gridView = (GridView) findViewById(R.id.gridView1);
         search = (Button) findViewById(R.id.search);
@@ -59,16 +78,6 @@ public class HomeScreen extends AppCompatActivity {
         rename.setVisibility(View.INVISIBLE);
 
         isCopy = false;
-
-        
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        if (!prefs.getBoolean("firstTime", false)) {
-
-            // mark first time has ran.
-            SharedPreferences.Editor editor = prefs.edit();
-            editor.putBoolean("firstTime", true);
-            editor.commit();
-        }
 
         for (String s:read()) {
             albums.add(s);
@@ -231,21 +240,43 @@ public class HomeScreen extends AppCompatActivity {
         return index;
     }
 
-    private void showStartDialog(){
-        new AlertDialog.Builder(this)
-                .setTitle("THIS")
-                .setMessage("LMAO")
-                .setPositiveButton("ok", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        dialogInterface.dismiss();
-                    }
-                }).create().show();
-        /*SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
-        SharedPreferences.Editor editor = prefs.edit();
-        editor.putBoolean("firstStart", false);
-        editor.apply();*/
+    private void addPhoto(String photoFilePath, FileOutputStream fos){
+        index++;
+        File file = new File(photoFilePath);
+        Photo picture = new Photo(Uri.fromFile(file));
+        Uri imageUri = Uri.fromFile(file);
+
+        /**/
+
+        try {
+            fos.write(imageUri.toString().getBytes());
+        } catch (IOException e){
+            e.printStackTrace();
+        }
     }
 
+    public void writeAlbum(){
+// FILE PATH    /data/user/0/com.craigmsirota.photos/files/albums.albm
+        try {
+            String str = "";
+            if (HomeScreen.albums.size() > 0) {
+                str = HomeScreen.albums.get(0);
+            }
 
+            FileOutputStream fileOutputStream = openFileOutput("albums.albm", MODE_PRIVATE);
+            for (int i = 1; i < HomeScreen.albums.size(); i++) {
+                str = str.concat("\n" + HomeScreen.albums.get(i));
+            }
+
+            fileOutputStream.write(str.getBytes());
+
+
+        }catch(FileNotFoundException e){
+            e.printStackTrace();
+        } catch(ArrayIndexOutOfBoundsException e){
+            e.printStackTrace();
+        } catch(IOException e){
+            e.printStackTrace();
+        }
+    }
 }
