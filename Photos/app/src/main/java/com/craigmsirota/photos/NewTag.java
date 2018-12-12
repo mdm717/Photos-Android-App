@@ -9,11 +9,16 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+
+/**
+ * Displays a prompt for the user to create a new tag on a photo
+ * @author Craig Sirota cms631
+ * @author Matt Marrazzo mdm289
+ */
 
 public class NewTag extends AppCompatActivity {
     private RadioButton loc, person;
@@ -22,7 +27,12 @@ public class NewTag extends AppCompatActivity {
     private Button send, cancel;
     private int type = -1;
 
-
+    /**
+     *
+     * This method sets the data and click listeners when an activity is created
+     * @param savedInstanceState    Bundle
+     *
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,6 +99,9 @@ public class NewTag extends AppCompatActivity {
 
     }
 
+    /**
+     * This method takes the app data and saves it into the corresponding album file
+     */
     public void write(){
 // FILE PATH    /data/user/0/com.craigmsirota.photos/files/albums.albm
         try {

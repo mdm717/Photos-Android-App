@@ -1,9 +1,5 @@
 package com.craigmsirota.photos;
 
-import android.app.AlertDialog;
-import android.content.ContentUris;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
@@ -16,9 +12,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.GridView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
@@ -30,8 +24,11 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-import static android.content.Context.MODE_PRIVATE;
-import static com.craigmsirota.photos.AlbumView.imgAdapter;
+/**
+ * Displays the list of albums and valid operations on the albums, such as add, delete, search, open
+ * @author Craig Sirota cms631
+ * @author Matt Marrazzo mdm289
+ */
 
 public class HomeScreen extends AppCompatActivity {
     public static GridView gridView;
@@ -43,6 +40,10 @@ public class HomeScreen extends AppCompatActivity {
     public static boolean isCopy;
     Album stockAlbum = new Album();
 
+    /**
+     * This method sets the data and click listeners when an activity is created
+     * @param savedInstanceState    Bundle
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         albums = new ArrayList<String>();
@@ -150,7 +151,6 @@ public class HomeScreen extends AppCompatActivity {
                 String stockAlbumName = "stock";
                 FileOutputStream fileOutputStream = openFileOutput(stockAlbumName + ".list", MODE_PRIVATE);
                 HomeScreen.albums.add(stockAlbumName);
-                writeAlbum();
                 String str = "android.resource://com.craigmsirota.photos/raw/stock1";
                 addPhoto(str, fileOutputStream);
                 str = "android.resource://com.craigmsirota.photos/raw/stock2";
@@ -173,26 +173,42 @@ public class HomeScreen extends AppCompatActivity {
         write();
     }
 
+    /**
+     * This method loads NewAlbum.class
+     */
     private void openNewAlbum(){
         Intent intent = new Intent(this, NewAlbum.class);
         startActivity(intent);
     }
 
+    /**
+     * This method loads AlbumView.class
+     */
     private void openAlbum(){
         Intent intent = new Intent(this, AlbumView.class);
         startActivity(intent);
     }
 
+    /**
+     * This method loads Search.class
+     */
     private void openSearch(){
         Intent intent = new Intent(this, Search.class);
         startActivity(intent);
     }
 
+    /**
+     * This method loads EditAlbum.class
+     */
     private void openEditAlbum(){
         Intent intent = new Intent(this, EditAlbum.class);
         startActivity(intent);
     }
 
+    /**
+     * This method reads the list of albums and stores it into the correct object
+     * @return String[] an array of the names of the albums
+     */
     public String[] read() {
         String[] strings = {};
 
@@ -223,6 +239,9 @@ public class HomeScreen extends AppCompatActivity {
         return strings;
     }
 
+    /**
+     * This method writes the list of album names back to "albums.albm"
+     */
     public void write(){
 // FILE PATH    /data/user/0/com.craigmsirota.photos/files/albums.albm
         try {
@@ -248,10 +267,19 @@ public class HomeScreen extends AppCompatActivity {
         }
     }
 
+    /**
+     * This method returns the index of the most recently selected album
+     * @return int  a variable containing the index of of the most recently selected album
+     */
     public static int getIndex(){
         return index;
     }
 
+    /**
+     * This method is used to add photos to the stock album
+     * @param photoFilePath this string should be a string version of the photo's Uri -- Uri.toString()
+     * @param fos   this FileOutputStream should contain the file you are writing to, in our case, we used this for stock.list
+     */
     private void addPhoto(String photoFilePath, FileOutputStream fos){
         File file = new File(photoFilePath);
   //      Photo picture = new Photo(Uri.fromFile(file));
@@ -262,31 +290,6 @@ public class HomeScreen extends AppCompatActivity {
             fos.write((Uri.parse(photoFilePath).toString()+'\n').getBytes());
         } catch (IOException e){
             Toast.makeText(this, "FAILED", Toast.LENGTH_LONG).show();
-            e.printStackTrace();
-        }
-    }
-
-    public void writeAlbum(){
-// FILE PATH    /data/user/0/com.craigmsirota.photos/files/albums.albm
-        try {
-            String str = "";
-            if (HomeScreen.albums.size() > 0) {
-                str = HomeScreen.albums.get(0);
-            }
-
-            FileOutputStream fileOutputStream = openFileOutput("albums.albm", MODE_PRIVATE);
-            for (int i = 1; i < HomeScreen.albums.size(); i++) {
-                str = str.concat("\n" + HomeScreen.albums.get(i));
-            }
-
-            fileOutputStream.write(str.getBytes());
-
-
-        }catch(FileNotFoundException e){
-            e.printStackTrace();
-        } catch(ArrayIndexOutOfBoundsException e){
-            e.printStackTrace();
-        } catch(IOException e){
             e.printStackTrace();
         }
     }

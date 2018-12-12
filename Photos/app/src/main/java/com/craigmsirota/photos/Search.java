@@ -9,7 +9,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -19,6 +18,12 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+
+/**
+ * Displays a prompt for the user to enter a tag to search for
+ * @author Craig Sirota cms631
+ * @author Matt Marrazzo mdm289
+ */
 
 public class Search extends AppCompatActivity {
     private RadioButton loc, person;
@@ -30,6 +35,10 @@ public class Search extends AppCompatActivity {
     private static ArrayList<Photo> sList = new ArrayList<>();
 
 
+    /**
+     * This method sets the data and click listeners when an activity is created
+     * @param savedInstanceState    Bundle
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -119,6 +128,9 @@ public class Search extends AppCompatActivity {
 
     }
 
+    /**
+     * This method iterates through all albums and adds all photos to a master list to be searched through
+     */
     public void read() {
         String[] strings = {};
         ArrayList<String> masterList = new ArrayList<>();
@@ -173,7 +185,9 @@ if(true){}
 
     }
 
-
+    /**
+     * This method writes the data of the searched data to SearchRes.list
+     */
     public void write(){
 // FILE PATH    /data/user/0/com.craigmsirota.photos/files/albums.albm
         try {

@@ -855,7 +855,6 @@ layout activity_new_album
 layout activity_new_tag
 layout activity_search
 layout activity_slide_show_view
-layout dialog_new_album
 layout notification_action
 layout notification_action_tombstone
 layout notification_template_custom_big
@@ -868,11 +867,6 @@ layout select_dialog_singlechoice_material
 layout support_simple_spinner_dropdown_item
 mipmap ic_launcher
 mipmap ic_launcher_round
-raw stock1
-raw stock2
-raw stock3
-raw stock4
-raw stock5
 string abc_action_bar_home_description
 string abc_action_bar_up_description
 string abc_action_menu_overflow_description
@@ -938,7 +932,6 @@ style AlertDialog_AppCompat_Light
 style Animation_AppCompat_Dialog
 style Animation_AppCompat_DropDownUp
 style Animation_AppCompat_Tooltip
-style AppFullScreenTheme
 style AppTheme1
 style Base_AlertDialog_AppCompat
 style Base_AlertDialog_AppCompat_Light

@@ -1,33 +1,18 @@
 package com.craigmsirota.photos;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.media.Image;
 import android.net.Uri;
-import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.GridView;
 import android.view.View.OnClickListener;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
-
-import com.craigmsirota.photos.Album;
-import com.craigmsirota.photos.HomeScreen;
-import com.craigmsirota.photos.ImageAdapter;
-import com.craigmsirota.photos.R;
-
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -35,7 +20,11 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-
+/**
+ * Displays an album in a grid of photo which can be selected and displayed in a slide show style along with operations, such as display, add, delete, copy, paste, move
+ * @author Craig Sirota cms631
+ * @author Matt Marrazzo mdm289
+ */
 public class AlbumView extends AppCompatActivity {
     private static final int READ_REQUEST_CODE = 42;
     public static ImageAdapter imgAdapter;

@@ -1,6 +1,5 @@
 package com.craigmsirota.photos;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -8,13 +7,22 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+/**
+ * Displays a prompt for the user to create a new album
+ * @author Craig Sirota cms631
+ * @author Matt Marrazzo mdm289
+ */
+
 public class NewAlbum extends AppCompatActivity {
 
+    /**
+     * This method sets the data and click listeners when an activity is created
+     * @param savedInstanceState    Bundle
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,12 +59,16 @@ public class NewAlbum extends AppCompatActivity {
         });
     }
 
+    /**
+     * This method finishes the activity and returns to HomeScreen.class
+     */
     private void back() {
-        Intent intent = new Intent(this, HomeScreen.class);
-        startActivity(intent);
+        finish();
     }
 
-
+    /**
+     * This method takes the app data and saves it into the corresponding album file
+     */
     public void write(){
 // FILE PATH    /data/user/0/com.craigmsirota.photos/files/albums.albm
         try {

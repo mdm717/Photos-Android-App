@@ -1,6 +1,5 @@
 package com.craigmsirota.photos;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -19,8 +18,18 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
+/**
+ * Prompts the user for a new name for an album and sets the name or cancels
+ * @author Craig Sirota cms631
+ * @author Matt Marrazzo mdm289
+ */
+
 public class EditAlbum extends AppCompatActivity {
 
+    /**
+     * This method sets the data and click listeners when an activity is created
+     * @param savedInstanceState    Bundle
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,12 +92,16 @@ public class EditAlbum extends AppCompatActivity {
         });
     }
 
+    /**
+     * This method finishes the activity and returns to HomeScreen.class
+     */
     private void back() {
-        Intent intent = new Intent(this, HomeScreen.class);
-        startActivity(intent);
+        finish();
     }
 
-
+    /**
+     * This method takes the app data and saves it into the corresponding album file
+     */
     public void write(){
 // FILE PATH    /data/user/0/com.craigmsirota.photos/files/albums.albm
         try {
@@ -113,6 +126,10 @@ public class EditAlbum extends AppCompatActivity {
         }
     }
 
+    /**
+     * This method reads the list of albums and stores it into the correct object
+     * @return String[] an array of the names of the albums
+     */
     public String[] read() {
         String[] strings = {};
 

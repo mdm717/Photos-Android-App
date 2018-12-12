@@ -3,7 +3,6 @@ package com.craigmsirota.photos;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,14 +12,18 @@ import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 
-import static com.craigmsirota.photos.AlbumView.album;
+/**
+ * Displays a photo in a larger viewing window than the GridView from the AlbumView
+ * Also displays tags and operations for the user to search, add tags, and delete tags
+ * @author Craig Sirota cms631
+ * @author Matt Marrazzo mdm289
+ */
 
 public class SlideShowView extends AppCompatActivity {
     public static int index;
@@ -31,6 +34,9 @@ public class SlideShowView extends AppCompatActivity {
     public static GridView gridView;
     public static ArrayAdapter tagAdapter;
 
+    /**
+     * This method deactivates the delete tag button if there are no tags upon resuming
+     */
     @Override
     protected void onResume() {
         super.onResume();
@@ -43,6 +49,10 @@ public class SlideShowView extends AppCompatActivity {
         }
     }
 
+    /**
+     * This method sets the data and click listeners when an activity is created
+     * @param savedInstanceState    Bundle
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -196,7 +206,9 @@ public class SlideShowView extends AppCompatActivity {
         });
     }
 
-
+    /**
+     * This method takes the app data and saves it into the corresponding album file
+     */
     public void write(){
 // FILE PATH    /data/user/0/com.craigmsirota.photos/files/albums.albm
         try {

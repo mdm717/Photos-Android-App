@@ -3,6 +3,11 @@ package com.craigmsirota.photos;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+/**
+ * Represents an Album of photo
+ * @author Craig Sirota cms631
+ * @author Matt Marrazzo mdm289
+ */
 
 public class Album implements Serializable {
     private String albumName;
